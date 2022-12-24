@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "styles/Home.module.scss";
+import { useRecoilState } from "recoil";
+import { introState } from "utils/atom";
 
 const tutorial = ["어서오세요. 환영합니다.", "여기는 말장난 놀이터 입니다."];
 
 let copyArr: [] = [];
 
 export default function Information() {
+  const [end, setEnd] = useRecoilState(introState);
+
   const [order, orderText] = useState<string[]>([]);
   const [text, setText] = useState<any>();
   const [check, setCheck] = useState<boolean>(false);
   const [blink, setBlink] = useState<boolean>(false);
   const [number, setNumber] = useState<number>(0);
-
-  const [end, setEnd] = useState(false);
 
   const orderNumber = () => {
     if (number > tutorial.length - 1) return setEnd(!end);
