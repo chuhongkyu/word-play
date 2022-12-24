@@ -6,6 +6,22 @@
     url("/fonts/LINESeedKR-Rg.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Line-speed-Regular";
+  font-weight: 400;
+  src: url("/fonts/LINESeedKR-Th.woff");
+  src: url("/fonts/LINESeedKR-Th.otf") format("opentype"),
+    url("/fonts/LINESeedKR-Th.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Line-speed-Bold";
+  font-weight: 500;
+  src: url("/fonts/LINESeedKR-Bd.woff");
+  src: url("/fonts/LINESeedKR-Bd.otf") format("opentype"),
+    url("/fonts/LINESeedKR-Bd.ttf") format("truetype");
+}
+
 html,
 body,
 div,
