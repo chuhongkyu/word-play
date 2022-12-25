@@ -3,7 +3,11 @@ import styles from "styles/Home.module.scss";
 import { useRecoilState } from "recoil";
 import { introState } from "utils/atom";
 
-const tutorial = ["어서오세요. 환영합니다.", "여기는 말장난 놀이터 입니다."];
+const tutorial = [
+  "어서오세요. 환영합니다.",
+  "여기는 말장난 놀이터 입니다.",
+  "시작해 봅시다.",
+];
 
 let copyArr: [] = [];
 
