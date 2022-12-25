@@ -8,7 +8,6 @@ import { introState } from "utils/atom";
 import Game from "components/Game";
 
 export default function Home() {
-  const [data, setData] = useState($data);
   const [intro, setIntro] = useRecoilState(introState);
 
   return (
