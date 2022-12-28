@@ -3,6 +3,7 @@ import styles from "styles/Home.module.scss";
 import { $data } from "utils/word-play";
 
 interface Iproblem {
+  level: string;
   question: string;
   answer: string;
   why: string | undefined;
@@ -11,11 +12,10 @@ interface Iproblem {
 export default function Game() {
   const [problem, setProblem] = useState<any>($data);
   const [currentP, setCurrentP] = useState<Iproblem>();
-  const [inputs, setInputs] = useState({
-    answer: "",
-  });
+  const [inputs, setInputs] = useState<string>();
 
-  const { answer } = inputs; // 비구조화 할당을 통해 값 추출
+  const [combo, setCombo] = useState<number>(0);
+  const [checkCombo, setCheckCombo] = useState(false);
 
   const makeRandomProblem = () => {
     console.log("문제", problem);
@@ -34,37 +34,60 @@ export default function Game() {
   }, []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    setInputs({
-      ...inputs, // 기존의 input 객체를 복사한 뒤
-      [name]: value, // name 키를 가진 값을 value 로 설정
-    });
+    setInputs(e.target.value);
   };
 
   const onReset = () => {
-    setInputs({
-      answer: "",
-    });
+    setInputs('');
   };
 
-  const onSave = () => {};
+  const onSave = () => {
+    if(inputs == currentP?.answer){
+      console.log('정답')
+      onHandleSuccess()
+      setCheckCombo(true)
+    }else{
+      console.log('실패')
+      makeRandomProblem()
+      onReset()
+      setCheckCombo(false)
+      setCombo(0)
+    }
+  };
+
+  const onHandleSuccess = () =>{
+    if(checkCombo){
+      setCombo((prev) => prev + 1)
+    }else{
+      setCombo(0)
+    }
+    makeRandomProblem()
+    onReset()
+  }
 
   return (
     <div className={styles.container_game}>
-      <div>문제 : {currentP?.question}</div>
-      <input
-        name="answer"
-        placeholder="정답"
-        onChange={onChange}
-        value={answer}
-      />
-      <button onClick={onReset}>초기화</button>
-      <button onSubmit={onSave}>제출</button>
+      <div className={styles.badges}>
+        {currentP?.level ? <span>Level {currentP.level}</span> : null}
+      </div>
+      <div className={styles.problem}>문제 : {currentP?.question}</div>
+      <div className={styles.__input}>
+        정답 :
+        <input
+          name="inputs"
+          placeholder="입력해주세요"
+          onChange={onChange}
+          value={inputs}
+        />
+        <button onClick={onReset}>초기화</button>
+        <button onClick={onSave}>제출</button>
+      </div>
       <div>
         <b>값: </b>
-        {answer}
+        {inputs}
       </div>
       <div>상태 : </div>
+      <div>COMBO : {combo}</div>
     </div>
   );
 }

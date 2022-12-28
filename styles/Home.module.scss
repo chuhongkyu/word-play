@@ -20,4 +20,36 @@
 }
 
 .container_game {
+  padding: __vw(40) __vw(40);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: __vw(20);
+  .__input {
+    padding: __vw(10) __vw(15);
+    display: flex;
+    align-items: center;
+    width: __vw(1000);
+    height: __vw(120);
+    font-size: __vw(30);
+    input {
+      border: none;
+      width: __vw(500);
+      height: 100%;
+      font-size: __vw(30);
+      margin: 0 __vw(20);
+      outline-color: transparent;
+    }
+  }
+}
+
+.badges {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: __vw(10);
+  margin-bottom: __vw(20);
+}
+
+.problem {
+  font-size: __vw(55);
+  margin-bottom: __vw(50);
 }
