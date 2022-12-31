@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "styles/Home.module.scss";
+import {motion} from "framer-motion"
 import { $data } from "utils/word-play";
 
 interface Iproblem {
@@ -18,9 +19,7 @@ export default function Game() {
   const [checkCombo, setCheckCombo] = useState(false);
 
   const makeRandomProblem = () => {
-    console.log("문제", problem);
     let randNum = Math.floor(Math.random() * problem.length);
-    console.log("랜덤", randNum);
     setCurrentP(problem[randNum]);
   };
 
@@ -65,12 +64,21 @@ export default function Game() {
     onReset()
   }
 
+  useEffect(()=>{
+    console.log("정답:",currentP?.answer)
+  },[currentP])
+
   return (
-    <div className={styles.container_game}>
+    <motion.div animate={{y:[-10,0]}} className={styles.container_game}>
       <div className={styles.badges}>
-        {currentP?.level ? <span>Level {currentP.level}</span> : null}
+        {currentP?.level ? <span className={styles.level}>Level {currentP.level}</span> : null}
       </div>
       <div className={styles.problem}>문제 : {currentP?.question}</div>
+      <div className={styles.hint}>
+        힌트 :
+        <div className={styles.hint_hidden}>{currentP?.answer}</div>
+        <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
+      </div>
       <div className={styles.__input}>
         정답 :
         <input
@@ -79,8 +87,8 @@ export default function Game() {
           onChange={onChange}
           value={inputs}
         />
-        <button onClick={onReset}>초기화</button>
-        <button onClick={onSave}>제출</button>
+        <button className={styles.reset} onClick={onReset}>초기화</button>
+        <button className={styles.submit} onClick={onSave}>제출</button>
       </div>
       <div>
         <b>값: </b>
@@ -88,6 +96,6 @@ export default function Game() {
       </div>
       <div>상태 : </div>
       <div>COMBO : {combo}</div>
-    </div>
+    </motion.div>
   );
 }

@@ -19,7 +19,25 @@
   font-size: __vw(50);
 }
 
+.badges {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: __vw(10);
+  margin-bottom: __vw(20);
+  position: relative;
+  .level{
+    padding:__vw(10) __vw(15);
+    background: rgb(43, 43, 43);
+    border-radius: __vw(20);
+    color: white;
+    position: absolute;
+    top: __vw(-60);
+  }
+}
+
 .container_game {
+  position: relative;
   padding: __vw(40) __vw(40);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: __vw(20);
@@ -38,18 +56,45 @@
       margin: 0 __vw(20);
       outline-color: transparent;
     }
+    button{
+      
+    }
+    .reset{
+      padding:__vw(10) __vw(15);
+      background-color: gray;
+      color: white;
+    }
+    
+    .submit{
+      
+    }
   }
-}
-
-.badges {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: __vw(10);
-  margin-bottom: __vw(20);
 }
 
 .problem {
   font-size: __vw(55);
-  margin-bottom: __vw(50);
+  margin-bottom: __vw(16);
 }
+
+.hint{
+  font-size: __vw(20);
+  margin-bottom: __(40);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: __vw(10);
+  .hint_hidden{
+    padding: __vw(10) __vw(15);
+    border-radius: __vw(20);
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    color: rgb(53, 53, 53);
+  }
+  .hint_length{
+    padding: __vw(10) __vw(15);
+    border-radius: __vw(20);
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    color: rgb(53, 53, 53);
+  }
+}
+
+

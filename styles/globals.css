@@ -175,6 +175,11 @@ img {
   max-width: 100%;
 }
 
+button{
+  border: none;
+  background-color: inherit;
+}
+
 .section--lg {
   width: 100%;
   height: var(--app-height, 100vh);

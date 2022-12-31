@@ -168,13 +168,13 @@ export const $data = [
 
   { level: 1, question: "물리치료를 받는 이유는?", answer: "병을 물리치료구" },
   { level: 1, question: "우유가 넘어지면?", answer: "아야" },
-  { level: 1, question: "보내기 싫으면?", answer: "가위나 바위를 낸다" },
+  { level: 5, question: "보내기 싫으면?", answer: "가위나 바위를 낸다" },
   { level: 1, question: "세상에서 가장 놀라운 거품은?", answer: "언빌리버블" },
   { level: 1, question: "모내기 기계가 고장이 나면?", answer: "심기 불편" },
   { level: 1, question: "간첩이 동물원에 가면 찾는 새는?", answer: "공작새" },
   { level: 1, question: "오래된 우유를 다른 말로?", answer: "연세우유" },
   {
-    level: 1,
+    level: 3,
     question: "은행 금고를 1원도 남기지 않고 털면?",
     answer: "클린턴",
   },
