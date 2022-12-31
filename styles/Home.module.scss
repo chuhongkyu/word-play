@@ -39,15 +39,22 @@
 .container_game {
   position: relative;
   padding: __vw(40) __vw(40);
+  width: __vw(1080);
+  height: __vw(700);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: __vw(20);
   .__input {
-    padding: __vw(10) __vw(15);
+    position: absolute;
+    left: 0;
+    padding: 0 0 0 __vw(40);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: __vw(1000);
-    height: __vw(120);
+    width: 100%;
+    height: __vw(130);
     font-size: __vw(30);
+    border-top: 1px solid rgba(0, 0, 0, 0.8);
+    bottom: 0;
     input {
       border: none;
       width: __vw(500);
@@ -56,13 +63,19 @@
       margin: 0 __vw(20);
       outline-color: transparent;
     }
+    .btns{
+    
+    }
     button{
-      
+      width: __vw(150);
+      height: __vw(100);
+      padding:__vw(10) __vw(25);
+      color: white;
+      font-size: __vw(25);
+      border: 1px solid rgba(0, 0, 0, 0.8);
     }
     .reset{
-      padding:__vw(10) __vw(15);
-      background-color: gray;
-      color: white;
+      
     }
     
     .submit{

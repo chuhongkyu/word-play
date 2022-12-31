@@ -60,9 +60,10 @@ export const $data = [
   { level: 1, question: "다리미가 좋아하는 음식은?", answer: "피자" },
 
   {
-    level: 1,
+    level: 5,
     question: "겨울왕국의 엘사가 놀릴 때 하는 말은?",
-    answer: "얼 Let it go 레리",
+    answer: "얼레리꼴레리",
+    why: "얼 Let it go 레리"
   },
   { level: 1, question: "뽑으면 우는 식물은?", answer: "우엉" },
 
