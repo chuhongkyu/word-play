@@ -53,24 +53,27 @@
     width: 100%;
     height: __vw(130);
     font-size: __vw(30);
-    border-top: 1px solid rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
     bottom: 0;
     input {
-      border: none;
       width: __vw(500);
-      height: 100%;
+      height: fit-content;
       font-size: __vw(30);
-      margin: 0 __vw(20);
+      margin: __vw(5) __vw(20);
+      padding: __vw(40) 0;
       outline-color: transparent;
+      border: none;
     }
     .btns{
-    
+      height: 100%;
+      display: flex;
+      gap: __vw(10);
     }
     button{
-      width: __vw(150);
-      height: __vw(100);
-      padding:__vw(10) __vw(25);
-      color: white;
+      width: __vw(200);
+      height: 100%;
+      display: inline-block;
+      color: black;
       font-size: __vw(25);
       border: 1px solid rgba(0, 0, 0, 0.8);
     }
@@ -80,6 +83,18 @@
     
     .submit{
       
+    }
+  }
+
+  .combo{
+    font: bold __vw(50) 'Cinzel', serif;
+    color: #fff;
+    animation: text-shadow .75s linear infinite;
+    position: absolute;
+    left: __vw(-50);
+    top: 0;
+    b{
+      font-size: __vw(65);
     }
   }
 }

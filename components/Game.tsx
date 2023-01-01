@@ -18,8 +18,11 @@ export default function Game() {
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
 
+  const [error, setError] = useState<boolean>(false);
+
   const [combo, setCombo] = useState<number>(1);
   const [checkCombo, setCheckCombo] = useState(false);
+  const [comboAni, setComboAni] = useState(false);
 
   const makeRandomProblem = () => {
     let randNum = Math.floor(Math.random() * problem.length);
@@ -57,7 +60,10 @@ export default function Game() {
       onHandleSuccess()
       onHandleScore()
       setCheckCombo(true)
-    }else{
+    }else if(inputs == null|| inputs == ""){
+      setError(true)
+    }
+    else{
       console.log('실패')
       makeRandomProblem()
       onReset()
@@ -69,6 +75,8 @@ export default function Game() {
   const onHandleSuccess = () =>{
     if(checkCombo){
       setCombo((prev) => prev + 1)
+      setComboAni(true)
+      setTimeout(()=> setComboAni(false), 2100)
     }else{
       setCombo(1)
     }
@@ -79,6 +87,11 @@ export default function Game() {
   useEffect(()=>{
     console.log("정답:",currentP?.answer)
   },[currentP])
+
+  useEffect(()=>{
+    const timer = setTimeout(()=> setError(false), 2000)
+    return ()=> clearTimeout(timer)
+  },[error])
 
   return (
     <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
@@ -93,11 +106,12 @@ export default function Game() {
       </div>
       <div className={styles.__input}>
         정답 :
-        <input
+        <motion.input
           name="inputs"
           placeholder="입력해주세요"
           onChange={onChange}
           value={inputs}
+          animate={error ? {border : "1px solid red"}: {}}
         />
         <div className={styles.btns}>
           <button className={styles.reset} onClick={onReset}>초기화</button>
@@ -109,7 +123,12 @@ export default function Game() {
         {inputs}
       </div>
       <div>상태 : </div>
-      <div>COMBO : {combo}</div>
+      <motion.div
+        initial={{opacity:0}}
+        animate={comboAni ? {opacity:[0,1,0], scale:[0,1.2,0]}: {opacity: 0, scale: 1}}
+        transition={{type:"spring", duration: 1.5}}
+        className={styles.combo}>COMBO<b>{combo}</b>
+      </motion.div>
       <div>점수 : {score}</div>
     </motion.div>
   );
