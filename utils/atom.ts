@@ -5,9 +5,4 @@ const introState = atom({
   default: false,
 });
 
-const scoreNumberState = atom({
-  key: 'scoreNumberState',
-  default: 0,
-});
-
-export { introState, scoreNumberState };
+export { introState };

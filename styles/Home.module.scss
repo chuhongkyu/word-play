@@ -89,7 +89,7 @@
   .combo{
     font: bold __vw(50) 'Cinzel', serif;
     color: #fff;
-    animation: text-shadow .75s linear infinite;
+    animation: text-shadow 1s ease-in-out infinite;
     position: absolute;
     left: __vw(-50);
     top: 0;

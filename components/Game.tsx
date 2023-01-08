@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import styles from "styles/Home.module.scss";
 import {motion} from "framer-motion"
 import { $data } from "utils/word-play";
 import { useRecoilState } from "recoil";
-import { scoreNumberState } from "utils/atom";
 
 interface Iproblem {
   level: string;
@@ -13,7 +12,6 @@ interface Iproblem {
 }
 
 export default function Game() {
-  const [score, setScore] = useRecoilState(scoreNumberState)
   const [problem, setProblem] = useState<any>($data);
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
@@ -28,14 +26,6 @@ export default function Game() {
     let randNum = Math.floor(Math.random() * problem.length);
     setCurrentP(problem[randNum]);
   };
-
-  const onHandleScore = () =>{
-    if(checkCombo){
-      setScore((prev)=> prev + (combo * 2))
-    }else{
-      setScore((prev)=> prev + 1)
-    }
-  }
 
   useEffect(() => {
     setProblem($data);
@@ -54,24 +44,6 @@ export default function Game() {
     setInputs('');
   };
 
-  const onSave = () => {
-    if(inputs == currentP?.answer){
-      console.log('정답')
-      onHandleSuccess()
-      onHandleScore()
-      setCheckCombo(true)
-    }else if(inputs == null|| inputs == ""){
-      setError(true)
-    }
-    else{
-      console.log('실패')
-      makeRandomProblem()
-      onReset()
-      setCheckCombo(false)
-      setCombo(1)
-    }
-  };
-
   const onHandleSuccess = () =>{
     if(checkCombo){
       setCombo((prev) => prev + 1)
@@ -83,6 +55,42 @@ export default function Game() {
     makeRandomProblem()
     onReset()
   }
+
+  const [score, dispatch] = useReducer(reducer, 0);
+
+  function reducer (score:number, action) {
+    switch (action.type) {
+      case 'SUCCESS':
+        console.log('정답')
+        onHandleSuccess()
+        setCheckCombo(true)
+        return score + (combo * 2)
+
+      case 'ERROR':
+        setError(true)
+        return score
+
+      case 'FAIL':
+        console.log('실패')
+        makeRandomProblem()
+        onReset()
+        setCheckCombo(false)
+        setCombo(1)
+        return score
+      default:
+        return score;
+    }
+  }
+
+  const onSave = () => {
+    if(inputs == currentP?.answer){
+      dispatch({ type: 'SUCCESS' });
+    }else if(inputs == null|| inputs == ""){
+      dispatch({ type: 'ERROR' });
+    }else{
+      dispatch({ type: 'FAIL' });
+    }
+  };
 
   useEffect(()=>{
     console.log("정답:",currentP?.answer)
@@ -127,7 +135,7 @@ export default function Game() {
         initial={{opacity:0}}
         animate={comboAni ? {opacity:[0,1,0], scale:[0,1.2,0]}: {opacity: 0, scale: 1}}
         transition={{type:"spring", duration: 1.5}}
-        className={styles.combo}>COMBO<b>{combo}</b>
+        className={styles.combo}><b>{combo}</b>COMBO
       </motion.div>
       <div>점수 : {score}</div>
     </motion.div>
