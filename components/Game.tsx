@@ -21,6 +21,7 @@ export default function Game() {
   const [combo, setCombo] = useState<number>(1);
   const [checkCombo, setCheckCombo] = useState(false);
   const [comboAni, setComboAni] = useState(false);
+  const [successAni, setSuccessAni] = useState(false);
 
   const makeRandomProblem = () => {
     let randNum = Math.floor(Math.random() * problem.length);
@@ -52,13 +53,19 @@ export default function Game() {
     }else{
       setCombo(1)
     }
-    makeRandomProblem()
-    onReset()
+    setSuccessAni(true)
+    setTimeout(()=> onHandleAni(), 1000)
+    
+    function onHandleAni(){
+      setSuccessAni(false)
+      makeRandomProblem()
+      onReset()
+    }
   }
 
   const [score, dispatch] = useReducer(reducer, 0);
 
-  function reducer (score:number, action) {
+  function reducer (score:number, action:{type: string;}) {
     switch (action.type) {
       case 'SUCCESS':
         console.log('정답')
@@ -112,8 +119,12 @@ export default function Game() {
         <div className={styles.hint_hidden}>{currentP?.answer}</div>
         <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
       </div>
-      <div className={styles.__input}>
+      <motion.div 
+        className={styles.__input}
+        animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
+        transition={{duration:0.5}}>
         정답 :
+        {successAni ? <div className={styles.__answer}>{currentP?.answer}</div> : 
         <motion.input
           name="inputs"
           placeholder="입력해주세요"
@@ -121,11 +132,12 @@ export default function Game() {
           value={inputs}
           animate={error ? {border : "1px solid red"}: {}}
         />
+        }
         <div className={styles.btns}>
           <button className={styles.reset} onClick={onReset}>초기화</button>
           <button className={styles.submit} onClick={onSave}>제출</button>
         </div>
-      </div>
+      </motion.div>
       <div>
         <b>값: </b>
         {inputs}

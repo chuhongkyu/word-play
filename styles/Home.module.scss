@@ -55,6 +55,12 @@
     font-size: __vw(30);
     border-top: 1px solid rgba(0, 0, 0, 0.25);
     bottom: 0;
+    .__answer{
+      width: __vw(500);
+      font-size: __vw(30);
+      margin: __vw(5) __vw(20);
+      color: cadetblue;
+    }
     input {
       width: __vw(500);
       height: fit-content;
