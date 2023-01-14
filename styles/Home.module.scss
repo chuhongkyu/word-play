@@ -81,8 +81,9 @@
       width: __vw(500);
       height: fit-content;
       font-size: __vw(30);
-      margin: __vw(5) __vw(20);
-      padding: __vw(40) 0;
+      display: flex;
+      align-items: center;
+      padding: __vw(15) 0 __vw(10) __vw(10);
       outline-color: transparent;
       border: none;
     }
