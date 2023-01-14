@@ -115,9 +115,24 @@ export default function Game() {
       </div>
       <div className={styles.problem}>문제 : {currentP?.question}</div>
       <div className={styles.hint}>
-        힌트 :
+        Hint :
         <div className={styles.hint_hidden}>{currentP?.answer}</div>
         <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
+      </div>
+      
+      {/* <div>
+        <b>값: </b>
+        {inputs}
+      </div> */}
+      {/* <div>상태 : </div> */}
+      <motion.div
+        initial={{opacity:0}}
+        animate={comboAni ? {opacity:[0,1,0], scale:[0,1.2,0]}: {opacity: 0, scale: 1}}
+        transition={{type:"spring", duration: 1.5}}
+        className={styles.combo}><b>{combo}</b>COMBO
+      </motion.div>
+      <div className={styles.container_score}>
+        <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{score}</motion.b><p>점</p>
       </div>
       <motion.div 
         className={styles.__input}
@@ -138,18 +153,6 @@ export default function Game() {
           <button className={styles.submit} onClick={onSave}>제출</button>
         </div>
       </motion.div>
-      <div>
-        <b>값: </b>
-        {inputs}
-      </div>
-      <div>상태 : </div>
-      <motion.div
-        initial={{opacity:0}}
-        animate={comboAni ? {opacity:[0,1,0], scale:[0,1.2,0]}: {opacity: 0, scale: 1}}
-        transition={{type:"spring", duration: 1.5}}
-        className={styles.combo}><b>{combo}</b>COMBO
-      </motion.div>
-      <div>점수 : {score}</div>
     </motion.div>
   );
 }
