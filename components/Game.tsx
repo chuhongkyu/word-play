@@ -15,6 +15,8 @@ export default function Game() {
   const [problem, setProblem] = useState<any>($data);
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
+  //목숨
+  const [life, setLife] = useState<number>(3);
 
   const [clear,setClear] = useState(false);
 
@@ -57,7 +59,8 @@ export default function Game() {
       setCombo(1)
     }
     setSuccessAni(true)
-    setTimeout(()=> onHandleAni(), 900)
+    setLife(3)
+    setTimeout(()=> onHandleAni(), 1500)
     
     function onHandleAni(){
       setSuccessAni(false)
@@ -81,11 +84,16 @@ export default function Game() {
         return score
 
       case 'FAIL':
-        console.log('실패')
-        makeRandomProblem()
-        onReset()
-        setCheckCombo(false)
-        setCombo(1)
+        if(life <= 0){
+          makeRandomProblem()
+          onReset()
+          setCheckCombo(false)
+          setCombo(1)
+          setLife(3)
+        }else{
+          setLife(prev => prev - 1)
+          console.log('실패', life)
+        }
         return score
       default:
         return score;
@@ -122,7 +130,7 @@ export default function Game() {
         <div className={styles.hint_hidden}>{currentP?.answer}</div>
         <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
       </div>
-      
+      <div>{life}/3</div>
       {/* <div>
         <b>값: </b>
         {inputs}
