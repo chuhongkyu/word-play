@@ -54,9 +54,13 @@
     b{
       font-size: __vw(55);
       margin-right: __vw(5);
+      font-weight: 700;
     }
     p{
       font-size: __vw(20);
+      transform: translateY(-0.1rem);
+      font-weight: 400;
+      color: #505050;
     }
   }
   .__input {
@@ -64,12 +68,12 @@
     left: 0;
     padding: 0 0 0 __vw(40);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     height: __vw(130);
     font-size: __vw(30);
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    border-top: 1.5px solid rgba(0, 0, 0, 0.164);
     bottom: 0;
     .__answer{
       width: __vw(500);
@@ -87,25 +91,32 @@
       outline-color: transparent;
       border: none;
     }
-    .btns{
-      height: 100%;
-      display: flex;
-      gap: __vw(10);
-    }
     button{
       width: __vw(200);
       height: 100%;
       display: inline-block;
       color: black;
       font-size: __vw(25);
-      border: 1px solid rgba(0, 0, 0, 0.8);
     }
     .reset{
-      
+      background: url('/icon/x.svg') center center / cover;
+      width: __vw(50);
+      height: __vw(50);
+      margin:  auto 0;
     }
     
     .submit{
-      
+      position: absolute;
+      right: 0;
+      border-bottom-right-radius: __vw(20);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background-color: white;
+      z-index: 2;
+      transform: translateY(__vw(-4));
+      &:hover{
+        transform: translateY(__vw(-5));
+        transition: 0.5s;
+      }
     }
   }
 
@@ -115,7 +126,7 @@
     animation: text-shadow 1s ease-in-out infinite;
     position: absolute;
     left: __vw(-50);
-    top: 0;
+    top: __vw(150);
     b{
       font-size: __vw(65);
     }

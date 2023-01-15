@@ -11,6 +11,17 @@
   @return calc($px-vw * $vh100 / $base-vh)
 };
 
+@mixin ellipsis($line) {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  //줄
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
 @mixin zebra-shadow($size, $colors) {
   $text-shadow: ();
   @for $i from 1 through length($colors) {

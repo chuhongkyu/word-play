@@ -16,6 +16,8 @@ export default function Game() {
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
 
+  const [clear,setClear] = useState(false);
+
   const [error, setError] = useState<boolean>(false);
 
   const [combo, setCombo] = useState<number>(1);
@@ -43,6 +45,7 @@ export default function Game() {
 
   const onReset = () => {
     setInputs('');
+    setClear(false)
   };
 
   const onHandleSuccess = () =>{
@@ -54,7 +57,7 @@ export default function Game() {
       setCombo(1)
     }
     setSuccessAni(true)
-    setTimeout(()=> onHandleAni(), 1000)
+    setTimeout(()=> onHandleAni(), 900)
     
     function onHandleAni(){
       setSuccessAni(false)
@@ -111,7 +114,7 @@ export default function Game() {
   return (
     <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
       <div className={styles.badges}>
-        {currentP?.level ? <span className={styles.level}>Level {currentP.level}</span> : null}
+        {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
       </div>
       <div className={styles.problem}>문제 : {currentP?.question}</div>
       <div className={styles.hint}>
@@ -127,8 +130,8 @@ export default function Game() {
       {/* <div>상태 : </div> */}
       <motion.div
         initial={{opacity:0}}
-        animate={comboAni ? {opacity:[0,1,0], scale:[0,1.2,0]}: {opacity: 0, scale: 1}}
-        transition={{type:"spring", duration: 1.5}}
+        animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+        transition={{type: "spring", duration: 0.5}}
         className={styles.combo}><b>{combo}</b>COMBO
       </motion.div>
       <div className={styles.container_score}>
@@ -144,14 +147,12 @@ export default function Game() {
           name="inputs"
           placeholder="입력해주세요"
           onChange={onChange}
+          onKeyUp={()=>{setClear(true)}}
           value={inputs}
           animate={error ? {border : "1px solid red"}: {}}
-        />
-        }
-        <div className={styles.btns}>
-          <button className={styles.reset} onClick={onReset}>초기화</button>
-          <button className={styles.submit} onClick={onSave}>제출</button>
-        </div>
+        />}
+        {clear ? <button className={styles.reset} onClick={onReset}></button> : null}
+        <button className={styles.submit} onClick={onSave}>제출</button>    
       </motion.div>
     </motion.div>
   );
