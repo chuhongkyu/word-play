@@ -161,4 +161,18 @@
   }
 }
 
+.life_numbers{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: __vw(6);
+  .life_number{
+    display: block;
+    width: __vw(20);
+    height: __vw(20);
+    border-radius: 50%;
+    background-color: #C3EE41;
+  }
+}
+
 

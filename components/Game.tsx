@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import styles from "styles/Home.module.scss";
 import {motion} from "framer-motion"
 import { $data } from "utils/word-play";
+import Life from "components/Life";
 import { useRecoilState } from "recoil";
 
 interface Iproblem {
@@ -13,17 +14,22 @@ interface Iproblem {
 
 export default function Game() {
   const [problem, setProblem] = useState<any>($data);
+  const [game, setGame] = useState({
+    game: true,
+    score : 0,
+    combo : 0,
+    life : 3,
+    gameState : 'GAME_NORMAL',
+  })
+
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
   //목숨
-  const [life, setLife] = useState<number>(3);
-
+  
+  //클리어
   const [clear,setClear] = useState(false);
-
+  //모션
   const [error, setError] = useState<boolean>(false);
-
-  const [combo, setCombo] = useState<number>(1);
-  const [checkCombo, setCheckCombo] = useState(false);
   const [comboAni, setComboAni] = useState(false);
   const [successAni, setSuccessAni] = useState(false);
 
@@ -51,15 +57,22 @@ export default function Game() {
   };
 
   const onHandleSuccess = () =>{
-    if(checkCombo){
-      setCombo((prev) => prev + 1)
+    if(game.combo != 0){
+      setGame((prevState) => ({...prevState,  
+        score : game.score + 1,
+        combo : game.combo + 1,
+        life : 3,
+      }))
       setComboAni(true)
       setTimeout(()=> setComboAni(false), 2100)
     }else{
-      setCombo(1)
+      setGame((prevState) => ({...prevState,  
+        score : game.score + (game.combo * 2),
+        combo : game.combo + 1,
+        life : 3,
+      }))
     }
     setSuccessAni(true)
-    setLife(3)
     setTimeout(()=> onHandleAni(), 1500)
     
     function onHandleAni(){
@@ -76,27 +89,30 @@ export default function Game() {
       case 'SUCCESS':
         console.log('정답')
         onHandleSuccess()
-        setCheckCombo(true)
-        return score + (combo * 2)
+        return score
 
       case 'ERROR':
         setError(true)
         return score
 
       case 'FAIL':
-        if(life <= 0){
+        if(game.life < 1){
           makeRandomProblem()
           onReset()
-          setCheckCombo(false)
-          setCombo(1)
-          setLife(3)
+          setGame((prevState) => ({...prevState,  
+            score : 0,
+            combo : 0,
+            life : 3,
+            gameState : 'GAME_NORMAL',
+          }))
         }else{
-          setLife(prev => prev - 1)
-          console.log('실패', life)
+          setGame((prevState) => ({...prevState,  
+            life : game.life - 1
+          }))
         }
         return score
       default:
-        return score;
+        return score
     }
   }
 
@@ -124,13 +140,13 @@ export default function Game() {
       <div className={styles.badges}>
         {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
       </div>
-      <div className={styles.problem}>문제 : {currentP?.question}</div>
+      <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
       <div className={styles.hint}>
         Hint :
         <div className={styles.hint_hidden}>{currentP?.answer}</div>
         <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
       </div>
-      <div>{life}/3</div>
+      {/* <Life life={game.life}></Life> */}
       {/* <div>
         <b>값: </b>
         {inputs}
@@ -140,10 +156,10 @@ export default function Game() {
         initial={{opacity:0}}
         animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
         transition={{type: "spring", duration: 0.5}}
-        className={styles.combo}><b>{combo}</b>COMBO
+        className={styles.combo}><b>{game.combo}</b>COMBO
       </motion.div>
       <div className={styles.container_score}>
-        <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{score}</motion.b><p>점</p>
+        <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
       </div>
       <motion.div 
         className={styles.__input}
