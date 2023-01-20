@@ -1,9 +1,11 @@
 import { useEffect, use } from "react";
 import styles from "styles/Home.module.scss";
 
-export default function Life(lifes:number|null) {
+type Ilife = {
+  lifes?: number
+}
 
-
+export default function Life({lifes}:Ilife) {
   return (
     <div className={styles.life_numbers}>
         { lifes === 1 ? (<div className={styles.life_number}></div>) : null}
