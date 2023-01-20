@@ -18,13 +18,13 @@ export default function Game() {
     game: true,
     score : 0,
     combo : 0,
-    life : 3,
     gameState : 'GAME_NORMAL',
   })
 
   const [currentP, setCurrentP] = useState<Iproblem>();
   const [inputs, setInputs] = useState<string>();
   //목숨
+  const [life, setLife] = useState<number>(3);
   
   //클리어
   const [clear,setClear] = useState(false);
@@ -61,7 +61,7 @@ export default function Game() {
       setGame((prevState) => ({...prevState,  
         score : game.score + 1,
         combo : game.combo + 1,
-        life : 3,
+  
       }))
       setComboAni(true)
       setTimeout(()=> setComboAni(false), 2100)
@@ -69,7 +69,7 @@ export default function Game() {
       setGame((prevState) => ({...prevState,  
         score : game.score + (game.combo * 2),
         combo : game.combo + 1,
-        life : 3,
+  
       }))
     }
     setSuccessAni(true)
@@ -96,19 +96,16 @@ export default function Game() {
         return score
 
       case 'FAIL':
-        if(game.life < 1){
+        if(life < 1){
           makeRandomProblem()
           onReset()
           setGame((prevState) => ({...prevState,  
             score : 0,
             combo : 0,
-            life : 3,
             gameState : 'GAME_NORMAL',
           }))
         }else{
-          setGame((prevState) => ({...prevState,  
-            life : game.life - 1
-          }))
+          setLife(prev => prev - 1 )
         }
         return score
       default:
@@ -146,7 +143,7 @@ export default function Game() {
         <div className={styles.hint_hidden}>{currentP?.answer}</div>
         <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
       </div>
-      {/* <Life life={game.life}></Life> */}
+      <Life lifes={life}></Life>
       {/* <div>
         <b>값: </b>
         {inputs}
