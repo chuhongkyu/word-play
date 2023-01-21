@@ -34,14 +34,21 @@ export default function Game() {
   const [successAni, setSuccessAni] = useState(false);
   //타이머
   const [timerBar, setTimerBar] = useState(100);
-  
+
+  //시간
   useEffect(() => {
     const timer = setTimeout(()=>{ setTimerBar(prev => prev - 1)}, 200)
     if(timerBar <= 0){
       dispatch({ type: 'FAIL' });
-      setTimerBar(105)
     }
   }, [timerBar])
+
+  //라이프 변화시 시간
+  useEffect(() => {
+    if(life < 1){
+      dispatch({ type: 'FAIL' });
+    }
+  }, [life])
 
   const makeRandomProblem = () => {
     let randNum = Math.floor(Math.random() * problem.length);
@@ -55,6 +62,8 @@ export default function Game() {
 
   useEffect(() => {
     makeRandomProblem();
+    //설정 처음 아님
+    localStorage.setItem('intro', 'true')
   }, []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,19 +76,22 @@ export default function Game() {
   };
 
   const onHandleSuccess = () =>{
-    if(game.combo != 0){
+    setLife(3)
+    setTimerBar(100)
+    if(game.combo === 0){
       setGame((prevState) => ({...prevState,  
         score : game.score + 1,
         combo : game.combo + 1,
       }))
-      setComboAni(true)
-      setTimeout(()=> setComboAni(false), 2100)
     }else{
       setGame((prevState) => ({...prevState,  
         score : game.score + (game.combo * 2),
         combo : game.combo + 1,
       }))
+      setComboAni(true)
+      setTimeout(()=> setComboAni(false), 2100)
     }
+    
     setSuccessAni(true)
     setTimeout(()=> onHandleAni(), 1500)
     
@@ -90,18 +102,18 @@ export default function Game() {
     }
   }
 
-  const [score, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, "GAME_NORMAL");
 
-  function reducer (score:number, action:{type: string;}) {
+  function reducer (state:string, action:{type: string;}) {
     switch (action.type) {
       case 'SUCCESS':
         console.log('정답')
         onHandleSuccess()
-        return score
+        return state
 
       case 'ERROR':
         setError(true)
-        return score
+        return state
 
       case 'FAIL':
         if(life < 1){
@@ -113,12 +125,14 @@ export default function Game() {
             gameState : 'GAME_NORMAL',
           }))
           setLife(3)
+          setTimerBar(100)
         }else{
           setLife(prev => prev - 1 )
+          setTimerBar(100)
         }
-        return score
+        return state
       default:
-        return score
+        return state
     }
   }
 
