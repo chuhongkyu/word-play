@@ -156,49 +156,54 @@ export default function Game() {
   },[error])
 
   return (
-    <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
-      <div className={styles.badges}>
-        {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
+    <>
+      <div className={styles.main_bg}>
+        <img src="/img/bg.jpg" alt="bg"/>
       </div>
-      <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
-      <div className={styles.hint}>
-        Hint :
-        <div className={styles.hint_hidden}>{currentP?.answer}</div>
-        <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
-      </div>
-      <Life lifes={life}></Life>
-      {/* <div>
-        <b>값: </b>
-        {inputs}
-      </div> */}
-      {/* <div>상태 : </div> */}
-      <motion.div
-        initial={{opacity:0}}
-        animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
-        transition={{type: "spring", duration: 0.5}}
-        className={styles.combo}><b>{game.combo}</b>COMBO
+      <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
+        <div className={styles.badges}>
+          {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
+        </div>
+        <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
+        <div className={styles.hint}>
+          Hint :
+          <div className={styles.hint_hidden}>{currentP?.answer}</div>
+          <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
+        </div>
+        <Life lifes={life}></Life>
+        {/* <div>
+          <b>값: </b>
+          {inputs}
+        </div> */}
+        {/* <div>상태 : </div> */}
+        <motion.div
+          initial={{opacity:0}}
+          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+          transition={{type: "spring", duration: 0.5}}
+          className={styles.combo}><b>{game.combo}</b>COMBO
+        </motion.div>
+        <div className={styles.container_score}>
+          <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
+        </div>
+        <TimerBar time={timerBar}></TimerBar>
+        <motion.div 
+          className={styles.__input}
+          animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
+          transition={{duration:0.5}}>
+          정답 :
+          {successAni ? <div className={styles.__answer}>{currentP?.answer}</div> : 
+          <motion.input
+            name="inputs"
+            placeholder="입력해주세요"
+            onChange={onChange}
+            onKeyUp={()=>{setClear(true)}}
+            value={inputs}
+            animate={error ? {border : "1px solid red"}: {}}
+          />}
+          {clear ? <button className={styles.reset} onClick={onReset}></button> : null}
+          <button className={styles.submit} onClick={onSave}>제출</button>    
+        </motion.div>
       </motion.div>
-      <div className={styles.container_score}>
-        <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
-      </div>
-      <TimerBar time={timerBar}></TimerBar>
-      <motion.div 
-        className={styles.__input}
-        animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
-        transition={{duration:0.5}}>
-        정답 :
-        {successAni ? <div className={styles.__answer}>{currentP?.answer}</div> : 
-        <motion.input
-          name="inputs"
-          placeholder="입력해주세요"
-          onChange={onChange}
-          onKeyUp={()=>{setClear(true)}}
-          value={inputs}
-          animate={error ? {border : "1px solid red"}: {}}
-        />}
-        {clear ? <button className={styles.reset} onClick={onReset}></button> : null}
-        <button className={styles.submit} onClick={onSave}>제출</button>    
-      </motion.div>
-    </motion.div>
+    </>
   );
 }
