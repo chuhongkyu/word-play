@@ -47,7 +47,7 @@
     position: absolute;
     width: __vw(100);
     right: __vw(40);
-    bottom: __vw(150);
+    bottom: __vw(200);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -158,20 +158,6 @@
     border-radius: __vw(20);
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: rgb(53, 53, 53);
-  }
-}
-
-.life_numbers{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: __vw(6);
-  .life_number{
-    display: block;
-    width: __vw(20);
-    height: __vw(20);
-    border-radius: 50%;
-    background-color: #C3EE41;
   }
 }
 

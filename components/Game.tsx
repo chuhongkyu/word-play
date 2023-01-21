@@ -3,6 +3,7 @@ import styles from "styles/Home.module.scss";
 import {motion} from "framer-motion"
 import { $data } from "utils/word-play";
 import Life from "components/Life";
+import TimerBar from "components/TimerBar"
 import { useRecoilState } from "recoil";
 
 interface Iproblem {
@@ -25,13 +26,22 @@ export default function Game() {
   const [inputs, setInputs] = useState<string>();
   //목숨
   const [life, setLife] = useState<number>(3);
-  
   //클리어
   const [clear,setClear] = useState(false);
   //모션
   const [error, setError] = useState<boolean>(false);
   const [comboAni, setComboAni] = useState(false);
   const [successAni, setSuccessAni] = useState(false);
+  //타이머
+  const [timerBar, setTimerBar] = useState(100);
+  
+  useEffect(() => {
+    const timer = setTimeout(()=>{ setTimerBar(prev => prev - 1)}, 200)
+    if(timerBar <= 0){
+      dispatch({ type: 'FAIL' });
+      setTimerBar(105)
+    }
+  }, [timerBar])
 
   const makeRandomProblem = () => {
     let randNum = Math.floor(Math.random() * problem.length);
@@ -61,7 +71,6 @@ export default function Game() {
       setGame((prevState) => ({...prevState,  
         score : game.score + 1,
         combo : game.combo + 1,
-  
       }))
       setComboAni(true)
       setTimeout(()=> setComboAni(false), 2100)
@@ -69,7 +78,6 @@ export default function Game() {
       setGame((prevState) => ({...prevState,  
         score : game.score + (game.combo * 2),
         combo : game.combo + 1,
-  
       }))
     }
     setSuccessAni(true)
@@ -104,6 +112,7 @@ export default function Game() {
             combo : 0,
             gameState : 'GAME_NORMAL',
           }))
+          setLife(3)
         }else{
           setLife(prev => prev - 1 )
         }
@@ -158,6 +167,7 @@ export default function Game() {
       <div className={styles.container_score}>
         <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
       </div>
+      <TimerBar time={timerBar}></TimerBar>
       <motion.div 
         className={styles.__input}
         animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
