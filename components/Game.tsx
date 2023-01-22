@@ -164,6 +164,12 @@ export default function Game() {
         <div className={styles.badges}>
           {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
         </div>
+        <motion.div
+          initial={{opacity:0}}
+          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+          transition={{type: "spring", duration: 0.5}}
+          className={styles.combo}><b>{game.combo}</b>COMBO
+        </motion.div>
         <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
         <div className={styles.hint}>
           Hint :
@@ -176,12 +182,6 @@ export default function Game() {
           {inputs}
         </div> */}
         {/* <div>상태 : </div> */}
-        <motion.div
-          initial={{opacity:0}}
-          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
-          transition={{type: "spring", duration: 0.5}}
-          className={styles.combo}><b>{game.combo}</b>COMBO
-        </motion.div>
         <div className={styles.container_score}>
           <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
         </div>
