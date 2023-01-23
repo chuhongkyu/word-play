@@ -23,7 +23,7 @@ export default function Game() {
   })
 
   const [currentP, setCurrentP] = useState<Iproblem>();
-  const [inputs, setInputs] = useState<string>();
+  const [inputs, setInputs] = useState<string>('');
   //목숨
   const [life, setLife] = useState<number>(3);
   //클리어
