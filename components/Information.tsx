@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "styles/Home.module.scss";
 import { useRecoilState } from "recoil";
 import { introState } from "utils/atom";

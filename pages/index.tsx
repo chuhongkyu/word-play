@@ -11,14 +11,14 @@ export default function Home() {
   const [intro, setIntro] = useRecoilState(introState);
 
   useEffect(()=>{
-    // 2. localStorage의 데이터를 꺼낸다.
+    // localStorage의 데이터를 꺼낸다.
     const local_intro = localStorage.getItem('intro');
 
     // 최초 접속시 localStorage에 데이터가 없을 경우 새로운 배열을 생성한다. 
-    // ( 혹은 사용자 모두에게 watched 자료형를 localStorage에 넣는 방법도 있다.)
     if(local_intro){
       setIntro(true)
     }else{
+      console.log('없어')
     }
   },[]);
 
