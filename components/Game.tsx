@@ -34,21 +34,16 @@ export default function Game() {
   const [successAni, setSuccessAni] = useState(false);
   //타이머
   const [timerBar, setTimerBar] = useState(100);
+  const [timerReset, setTimerReset] = useState(false);
 
   //시간
   useEffect(() => {
-    const timer = setTimeout(()=>{ setTimerBar(prev => prev - 1)}, 200)
-    if(timerBar <= 0){
+    const timer = setTimeout(()=> setTimerBar(prev => prev - 1), 200)
+    if(timerBar <= 0 && !timerReset){
       dispatch({ type: 'FAIL' });
+      return ()=> clearTimeout(timer)
     }
   }, [timerBar])
-
-  //라이프 변화시 시간
-  useEffect(() => {
-    if(life < 1){
-      dispatch({ type: 'FAIL' });
-    }
-  }, [life])
 
   const makeRandomProblem = () => {
     let randNum = Math.floor(Math.random() * problem.length);
@@ -77,7 +72,7 @@ export default function Game() {
 
   const onHandleSuccess = () =>{
     setLife(3)
-    setTimerBar(100)
+    setTimerReset(true)
     if(game.combo === 0){
       setGame((prevState) => ({...prevState,  
         score : game.score + 1,
@@ -125,16 +120,27 @@ export default function Game() {
             gameState : 'GAME_NORMAL',
           }))
           setLife(3)
-          setTimerBar(100)
+          setTimerReset(true)
+          console.log("fail 라이프가 0시")
         }else{
           setLife(prev => prev - 1 )
-          setTimerBar(100)
+          setTimerReset(true)
+          console.log("fail 라이프가 3이상시")
         }
         return state
       default:
         return state
     }
   }
+
+  useEffect(()=>{
+    if(timerReset){
+      const bar = setTimeout(()=>{setTimerBar(100)},1500)
+      const reset = setTimeout(()=>{setTimerReset(false)},1500)
+      return () => {clearTimeout(bar); clearTimeout(reset);}
+    }
+    console.log("timerReset 작동")
+  },[timerReset])
 
   const onSave = () => {
     if(inputs == currentP?.answer){
@@ -185,7 +191,7 @@ export default function Game() {
         <div className={styles.container_score}>
           <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
         </div>
-        <TimerBar time={timerBar}></TimerBar>
+        <TimerBar time={timerBar} reset={timerReset}/>
         <motion.div 
           className={styles.__input}
           animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
