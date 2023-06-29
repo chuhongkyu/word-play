@@ -3,6 +3,7 @@
 
 #main {
   width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,11 +60,11 @@
 
 .container_game {
   position: relative;
-  margin-top: __vw(100px);
+  margin-top: __vw(40px);
   padding: __vw(40px) __vw(40px);
   width: 100%;
   max-width: 1200px;
-  height: __vw(700px);
+  height: __vw(530px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: __vw(20px);
   background-color: #fff;
@@ -95,38 +96,38 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: __vw(130px);
-    font-size: __vw(30px);
+    height: __vw(60px);
+    font-size: __vw(16px);
     border-top: 1.5px solid rgba(0, 0, 0, 0.164);
     bottom: 0;
     .__answer{
       width: __vw(500px);
-      font-size: __vw(30px);
+      font-size: __vw(16px);
       margin: __vw(5px) __vw(20px);
       color: cadetblue;
     }
     input {
-      width: __vw(500px);
       height: fit-content;
-      font-size: __vw(30px);
+      font-size: __vw(16px);
       display: flex;
       align-items: center;
-      padding: __vw(15px) 0 __vw(10px) __vw(10px);
       outline-color: transparent;
       border: none;
     }
     button{
-      width: __vw(200px);
+      width: __vw(100px);
       height: 100%;
       display: inline-block;
       color: black;
-      font-size: __vw(25px);
+      font-size: __vw(16px);
     }
     .reset{
+      position: absolute;
       background: url('/icon/x.svg') center center / cover;
-      width: __vw(50px);
-      height: __vw(50px);
-      margin:  auto 0;
+      width: __vw(15px);
+      height: __vw(15px);
+      right: __vw(120px);
+      z-index: 2;
     }
     
     .submit{
@@ -158,8 +159,10 @@
 }
 
 .problem {
-  font-size: __vw(55px);
+  font-size: __vw(24px);
   margin-bottom: __vw(16px);
+  line-height: 135%;
+  letter-spacing: -0.01em;
 }
 
 .hint{

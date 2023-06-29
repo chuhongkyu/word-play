@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <>
       <HeadComponent />
+      {/* <div id={styles.main}><Information /></div> */}
       <div id={styles.main}>{intro ? <Game /> : <Information />}</div>
     </>
   );
