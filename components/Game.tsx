@@ -165,54 +165,54 @@ export default function Game() {
     <>
       <div className={styles.main_bg}/>
       <div className={styles.section_game}>
-      <motion.div
-          initial={{opacity:0}}
-          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
-          transition={{type: "spring", duration: 0.5}}
-          className={styles.combo}><b>{game.combo}</b>COMBO
-      </motion.div>
-      <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
-        <div className={styles.badges}>
-          {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
-        </div>
-        <TimerBar time={timerBar} reset={timerReset}/>
-        
-        <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
-        <div className={styles.hint}>
-          Hint :
-          <div className={styles.hint_hidden}>{currentP?.answer}</div>
-          <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
-        </div>
-        {/* <div>
-          <b>값: </b>
-          {inputs}
-        </div> */}
-        {/* <div>상태 : </div> */}
-        <div className={styles.container_score}>
-          <Life lifes={life}></Life>
-          <span className={styles.score}>
-            <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
-          </span>
-        </div>
-        
-        <motion.div 
-          className={styles.__input}
-          animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
-          transition={{duration:0.5}}>
-          정답 :
-          {successAni ? <div className={styles.__answer}>{currentP?.answer}</div> : 
-          <motion.input
-            name="inputs"
-            placeholder="입력해주세요"
-            onChange={onChange}
-            onKeyUp={()=>{setClear(true)}}
-            value={inputs}
-            animate={error ? {border : "1px solid red"}: {}}
-          />}
-          {clear ? <button className={styles.reset} onClick={onReset}></button> : null}
-          <button className={styles.submit} onClick={onSave}>제출</button>    
+        <motion.div
+            initial={{opacity:0}}
+            animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+            transition={{type: "spring", duration: 0.5}}
+            className={styles.combo}><b>{game.combo}</b>COMBO
         </motion.div>
-      </motion.div>
+        <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
+          <div className={styles.badges}>
+            {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
+          </div>
+          <TimerBar time={timerBar} reset={timerReset}/>
+          
+          <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
+          <div className={styles.hint}>
+            Hint :
+            <div className={styles.hint_hidden}>{currentP?.answer}</div>
+            <div className={styles.hint_length}>{currentP?.answer.length} 글자</div>
+          </div>
+          {/* <div>
+            <b>값: </b>
+            {inputs}
+          </div> */}
+          {/* <div>상태 : </div> */}
+          <div className={styles.container_score}>
+            <Life lifes={life}></Life>
+            <span className={styles.score}>
+              <motion.b initial={{y:0}} animate={{y:[-5, 0]}}>{game.score}</motion.b><p>점</p>
+            </span>
+          </div>
+          
+          <motion.div 
+            className={styles.__input}
+            animate={successAni ?{backgroundColor:"#C3EE41"} : {}}
+            transition={{duration:0.5}}>
+            정답 :
+            {successAni ? <div className={styles.__answer}>{currentP?.answer}</div> : 
+            <motion.input
+              name="inputs"
+              placeholder="입력해주세요"
+              onChange={onChange}
+              onKeyUp={()=>{setClear(true)}}
+              value={inputs}
+              animate={error ? {border : "1px solid red"}: {}}
+            />}
+            {clear ? <button className={styles.reset} onClick={onReset}></button> : null}
+            <button className={styles.submit} onClick={onSave}>제출</button>    
+          </motion.div>
+        </motion.div>
       </div>
     </>
   );

@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       window.removeEventListener('resize', resizeHandler)
     }
   }, []);
+
   return (
     <AnimatePresence>
       <RecoilRoot>

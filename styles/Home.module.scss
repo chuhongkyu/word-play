@@ -16,10 +16,10 @@
     background: url('/img/bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(50px);
+    background-size: cover;
+    filter: blur(20px);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    object-fit: cover;
     width: 100%;
     height: 100%;
     user-select: none;
