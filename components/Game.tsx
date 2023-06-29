@@ -165,17 +165,18 @@ export default function Game() {
     <>
       <div className={styles.main_bg}/>
       <div className={styles.section_game}>
+      <motion.div
+          initial={{opacity:0}}
+          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+          transition={{type: "spring", duration: 0.5}}
+          className={styles.combo}><b>{game.combo}</b>COMBO
+      </motion.div>
       <motion.div animate={{y:[20,0], opacity:[0,1]}} className={styles.container_game}>
         <div className={styles.badges}>
           {currentP?.level ? <span className={styles.level}>Level&nbsp;&nbsp;{currentP.level}</span> : null}
         </div>
         <TimerBar time={timerBar} reset={timerReset}/>
-        <motion.div
-          initial={{opacity:0}}
-          animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
-          transition={{type: "spring", duration: 0.5}}
-          className={styles.combo}><b>{game.combo}</b>COMBO
-        </motion.div>
+        
         <motion.div initial={{y:0}} animate={{y:[20,0], opacity:[0, 1]}} className={styles.problem}>문제 : {currentP?.question}</motion.div>
         <div className={styles.hint}>
           Hint :
