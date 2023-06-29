@@ -65,6 +65,7 @@
   max-width: $max-width;
   padding: __vw(64px) __vw(20px);
   height: 100%;
+  overflow: hidden;
 }
 
 .container_game {
@@ -161,10 +162,10 @@
   color: #fff;
   animation: text-shadow 1s ease-in-out infinite;
   position: absolute;
-  left: 50%;
-  top: 50%;
+  transform: translateX(-50%);
+  left: calc(50% + __vw(10px));
+  top: __vw(30px);
   z-index: 44;
-  transform: translate(-50%, -50%);
   b{
     font-size: __vw(65px);
   }

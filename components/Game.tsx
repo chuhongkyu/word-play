@@ -167,7 +167,7 @@ export default function Game() {
       <div className={styles.section_game}>
         <motion.div
             initial={{opacity:0}}
-            animate={comboAni ? {opacity:[0, 1, ], y: [ 50, 0,]} : {opacity: 0, y: 0}}
+            animate={comboAni ? {opacity:[0, 1, ]} : {opacity: 0}}
             transition={{type: "spring", duration: 0.5}}
             className={styles.combo}><b>{game.combo}</b>COMBO
         </motion.div>
