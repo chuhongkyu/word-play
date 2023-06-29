@@ -5,11 +5,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: __vw(6);
+    gap: __vw(6px);
     .life_number{
       display: block;
-      width: __vw(20);
-      height: __vw(20);
+      width: __vw(20px);
+      height: __vw(20px);
       border-radius: 50%;
       background-color: $pointC
     }
@@ -17,15 +17,15 @@
 
 .life_timer{
     width: 100%;
-    height: __vw(50);
+    height: __vw(50px);
     overflow-x: hidden;
     position: absolute;
     left: 0;
-    bottom: __vw(130);
+    bottom: __vw(130px);
     .bar{
         display: block;
         // width: 100%;
-        height: __vw(50);
+        height: __vw(50px);
         background-color: $pointC;
     }
 }

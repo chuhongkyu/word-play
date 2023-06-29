@@ -3,7 +3,6 @@
 
 #main {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,54 +32,55 @@
 }
 
 .container_texts {
-  width: __vw(600);
+  width: __vw(600px);
   text-align: left;
 }
 
 .text {
-  font-size: __vw(50);
+  font-size: __vw(50px);
 }
 
 .badges {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: __vw(10);
-  margin-bottom: __vw(20);
+  gap: __vw(10px);
+  margin-bottom: __vw(20px);
   position: relative;
   .level{
-    padding:__vw(10) __vw(15);
+    padding:__vw(10px) __vw(15px);
     background: rgb(43, 43, 43);
-    border-radius: __vw(20);
+    border-radius: __vw(20px);
     color: white;
     position: absolute;
-    top: __vw(-60);
+    top: __vw(-60px);
   }
 }
 
 .container_game {
   position: relative;
-  padding: __vw(40) __vw(40);
-  width: __vw(1080);
-  height: __vw(700);
+  padding: __vw(40px) __vw(40px);
+  width: 100%;
+  max-width: 1200px;
+  height: __vw(700px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: __vw(20);
+  border-radius: __vw(20px);
   background-color: #fff;
   .container_score{
     position: absolute;
-    width: __vw(100);
-    right: __vw(40);
-    bottom: __vw(200);
+    width: __vw(100px);
+    right: __vw(40px);
+    bottom: __vw(200px);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     b{
-      font-size: __vw(55);
-      margin-right: __vw(5);
+      font-size: __vw(55px);
+      margin-right: __vw(5px);
       font-weight: 700;
     }
     p{
-      font-size: __vw(20);
+      font-size: __vw(20px);
       transform: translateY(-0.1rem);
       font-weight: 400;
       color: #505050;
@@ -89,96 +89,96 @@
   .__input {
     position: absolute;
     left: 0;
-    padding: 0 0 0 __vw(40);
+    padding: 0 0 0 __vw(40px);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: __vw(130);
-    font-size: __vw(30);
+    height: __vw(130px);
+    font-size: __vw(30px);
     border-top: 1.5px solid rgba(0, 0, 0, 0.164);
     bottom: 0;
     .__answer{
-      width: __vw(500);
-      font-size: __vw(30);
-      margin: __vw(5) __vw(20);
+      width: __vw(500px);
+      font-size: __vw(30px);
+      margin: __vw(5px) __vw(20px);
       color: cadetblue;
     }
     input {
-      width: __vw(500);
+      width: __vw(500px);
       height: fit-content;
-      font-size: __vw(30);
+      font-size: __vw(30px);
       display: flex;
       align-items: center;
-      padding: __vw(15) 0 __vw(10) __vw(10);
+      padding: __vw(15px) 0 __vw(10px) __vw(10px);
       outline-color: transparent;
       border: none;
     }
     button{
-      width: __vw(200);
+      width: __vw(200px);
       height: 100%;
       display: inline-block;
       color: black;
-      font-size: __vw(25);
+      font-size: __vw(25px);
     }
     .reset{
       background: url('/icon/x.svg') center center / cover;
-      width: __vw(50);
-      height: __vw(50);
+      width: __vw(50px);
+      height: __vw(50px);
       margin:  auto 0;
     }
     
     .submit{
       position: absolute;
       right: 0;
-      border-bottom-right-radius: __vw(20);
+      border-bottom-right-radius: __vw(20px);
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       background-color: white;
       z-index: 2;
-      transform: translateY(__vw(-4));
+      transform: translateY(__vw(-4px));
       &:hover{
-        transform: translateY(__vw(-5));
+        transform: translateY(__vw(-5px));
         transition: 0.5s;
       }
     }
   }
 
   .combo{
-    font: bold __vw(50) 'Cinzel', serif;
+    font: bold __vw(50px) 'Cinzel', serif;
     color: #fff;
     animation: text-shadow 1s ease-in-out infinite;
     position: absolute;
-    left: __vw(-50);
-    top: __vw(-50);
+    left: __vw(-50px);
+    top: __vw(-50px);
     b{
-      font-size: __vw(65);
+      font-size: __vw(65px);
     }
   }
 }
 
 .problem {
-  font-size: __vw(55);
-  margin-bottom: __vw(16);
+  font-size: __vw(55px);
+  margin-bottom: __vw(16px);
 }
 
 .hint{
-  font-size: __vw(20);
-  margin-top: __vw(30);
-  margin-bottom: __vw(40);
+  font-size: __vw(20px);
+  margin-top: __vw(30px);
+  margin-bottom: __vw(40px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: __vw(10);
+  gap: __vw(10px);
   .hint_hidden{
-    padding: __vw(10) __vw(15);
-    border-radius: __vw(20);
+    padding: __vw(10px) __vw(15px);
+    border-radius: __vw(20px);
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: rgb(53, 53, 53);
     background-color: rgb(53, 53, 53);
   }
   .hint_length{
-    padding: __vw(10) __vw(15);
-    border-radius: __vw(20);
+    padding: __vw(10px) __vw(15px);
+    border-radius: __vw(20px);
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: rgb(53, 53, 53);
   }

@@ -1,15 +1,8 @@
 @use "sass:math";
-@import './variables';
 
-@function __vw($px-vw, $base-vw: 1920) {
-  @return ($px-vw * 100vw) / $base-vw
-};
-
-@function __vh($px-vw, $base-vh: 1080) {
-  $vh100: calc(var(--vh) * 100);
-
-  @return calc($px-vw * $vh100 / $base-vh)
-};
+@function __vw($size) {
+  @return calc( var(--uw) *  #{math.div($size, $basic-width) * 100} );
+}
 
 @mixin ellipsis($line) {
   display: -webkit-box;
