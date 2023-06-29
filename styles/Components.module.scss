@@ -17,11 +17,11 @@
 
 .life_timer{
     width: 100%;
-    height: __vw(50px);
+    height: __vw(20px);
     overflow-x: hidden;
     position: absolute;
+    top: 0;
     left: 0;
-    bottom: __vw(130px);
     .bar{
         display: block;
         // width: 100%;

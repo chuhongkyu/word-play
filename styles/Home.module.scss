@@ -3,90 +3,92 @@
 
 #main {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  height: 100%;
   position: relative;
+  background: $pointC;
   .main_bg{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
-    z-index: -1;
-    background: $pointC;
-    img{
-      display: block;
-      width: 100%;
-      height: 100%;
-      user-select: none;
-      pointer-events: none;
-      cursor: none;
-      filter: blur(50px);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
+    background: url('/img/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(50px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    cursor: none;
   }
 }
 
 .container_texts {
-  width: __vw(600px);
   text-align: left;
 }
 
 .text {
-  font-size: __vw(50px);
+  font-size: __vw(25px);
 }
 
 .badges {
+  margin-top: __vw(5px);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: __vw(10px);
-  margin-bottom: __vw(20px);
-  position: relative;
+  width: 100%;
+  margin-bottom: __vw(5px);
   .level{
-    padding:__vw(10px) __vw(15px);
+    padding:__vw(4px) __vw(9px);
     background: rgb(43, 43, 43);
     border-radius: __vw(20px);
     color: white;
-    position: absolute;
-    top: __vw(-60px);
+    font-size: __vw(11px);
   }
+}
+.section_game{
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: __vw(64px) __vw(20px);
+  height: 100%;
 }
 
 .container_game {
+  overflow: hidden;
   position: relative;
-  margin-top: __vw(40px);
-  padding: __vw(40px) __vw(40px);
+  padding: __vw(20px) __vw(24px);
   width: 100%;
-  max-width: 1200px;
-  height: __vw(530px);
+  max-height: __vw(500px);
+  min-height: __vw(300px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: __vw(20px);
   background-color: #fff;
   .container_score{
-    position: absolute;
-    width: __vw(100px);
-    right: __vw(40px);
-    bottom: __vw(200px);
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    b{
-      font-size: __vw(55px);
-      margin-right: __vw(5px);
-      font-weight: 700;
+    justify-content: space-between;
+    .score{
+      display: flex;
+      align-items: flex-end;
+      b{
+        font-size: __vw(25px);
+        margin-right: __vw(5px);
+        font-weight: 700;
+      }
+      p{
+        font-size: __vw(20px);
+        transform: translateY(-0.1rem);
+        font-weight: 400;
+        color: #505050;
+      }
     }
-    p{
-      font-size: __vw(20px);
-      transform: translateY(-0.1rem);
-      font-weight: 400;
-      color: #505050;
-    }
+    
   }
   .__input {
     position: absolute;
@@ -159,32 +161,34 @@
 }
 
 .problem {
-  font-size: __vw(24px);
+  font-size: __vw(20px);
   margin-bottom: __vw(16px);
   line-height: 135%;
   letter-spacing: -0.01em;
 }
 
 .hint{
-  font-size: __vw(20px);
-  margin-top: __vw(30px);
-  margin-bottom: __vw(40px);
+  font-size: __vw(16px);
+  margin-top: __vw(10px);
+  margin-bottom: __vw(10px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: __vw(10px);
   .hint_hidden{
-    padding: __vw(10px) __vw(15px);
+    padding: __vw(5px) __vw(10px);
     border-radius: __vw(20px);
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: rgb(53, 53, 53);
     background-color: rgb(53, 53, 53);
+    margin-left: __vw(5px);
   }
   .hint_length{
-    padding: __vw(10px) __vw(15px);
+    padding: __vw(5px) __vw(10px);
     border-radius: __vw(20px);
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: rgb(53, 53, 53);
+    font-size: __vw(13px);
+    margin-left: __vw(5px);
   }
 }
 
