@@ -1,0 +1,95 @@
+@import './variables';
+
+.main{
+    width: 100%;
+    padding-top: $header-height;
+    max-width: $max-width;
+}
+
+.errorContainer{
+    padding: $header-height 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    a{
+        width: 200px;
+    }
+}
+
+.header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: $header-height;
+	color: $color-black-1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+	background: #fff;
+	.headerGroup{
+		position: relative;
+		height: 100%;
+		max-width: 1024px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.x-btn{
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		span{
+			display: block;
+			width: 24px;
+			height: 24px;
+			img{
+				display: block;
+				object-fit: cover;
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+}
+
+.btn-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 17px 20px;
+	box-sizing: border-box;
+}
+
+.btn{
+	width: 100%;
+	border: none;
+    background-color: $color-green-2;
+    color: #fff;
+    padding: 16px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+	cursor: pointer;
+	max-width: 984px;
+	&:disabled{
+		color: $color-gray-4;
+		background-color: $color-gray-3;
+	}
+	&.white{
+		box-sizing: border-box;
+		background: #fff;
+		color: $color-gray-6;
+		border: 1px solid $color-gray-4;
+	}
+}

@@ -21,4 +21,3 @@ https://word-play.vercel.app/
             - 목숨 감점
     - 초기화
         - input 창 초기화
-        

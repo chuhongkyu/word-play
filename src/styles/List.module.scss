@@ -1,0 +1,73 @@
+@import './variables';
+
+.banner{
+    width: 100%;
+    background: $root-color;
+    .wrapper{
+        padding: 60px 20px 31px;
+    }
+    small{
+        display: block;
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: $color-green-1;
+        margin-bottom: 4px;
+    }
+    h3{
+        display: block;
+        margin-bottom: 4px;
+        span{
+            font-size: 24px;
+        }  
+    }
+    .date{
+        display: block;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 24px;
+    }
+    .description{
+        display: block;
+        border-radius: 6px;       
+        background: #fff;
+        padding: 12px 20px 12px;
+        box-shadow: 4px 0px 20px 0px #00000017;
+    }
+}
+
+.list{
+    display: block;
+    width: 100%;
+    margin-bottom: 50px;
+    li{
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid #DDDDDD;
+        a{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            .listWrapper{
+                .subtitle{
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 150%;
+                }
+                .startDatetime{
+                    font-size: 12px;
+                    line-height: 200%;
+                    font-weight: 400;
+                    color: $color-gray-1;
+                }
+            }
+            .arrowBtn{
+                
+            }
+        }
+    }
+}
