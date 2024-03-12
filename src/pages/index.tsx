@@ -4,27 +4,24 @@ import Header from "@/components/Header";
 import ListContainer from "@/components/Home/ListContainer";
 import Banner from "@/components/Home/Banner";
 import { Suspense } from "react";
-import { IHomeData } from "@/interface/listType";
+import { IList } from "@/interface/listType";
 import Layout from "@/components/Layout";
 
 
+const BaseURL = process.env.NEXTAUTH_URL
+
 export const getStaticProps = async () => {
-  try{
-    const response = await fetch('https://qualson-test.vercel.app/api/test/list');
-    if(response.ok){
-      const data = await response.json();
-      return { props: { data }}
-    }else{
-      throw new Error('API 에러')
-    }
-  }catch(error){
-    return {
-      notFound: true,
-    }
+  const response = await fetch(`${BaseURL}/api/test/list`);
+  if(response.ok){
+    const data = await response.json();
+    return { props: { data }}
+  }else{
+    throw new Error('API 에러')
   }
 }
 
-export default function Home({ data }: { data :IHomeData}) {
+export default function Home({ data }: { data: IList[]}) {
+  console.log(data)
   return (
     <>
       <Head>
@@ -37,7 +34,7 @@ export default function Home({ data }: { data :IHomeData}) {
         <Header text="테스트 목록"/>
         <Banner/>
         <Suspense fallback={<div>Loading...</div>}>
-          <ListContainer lists={data}/>
+          <ListContainer data={data}/>
         </Suspense>
       </Layout>
     </>

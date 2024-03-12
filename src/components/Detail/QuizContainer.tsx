@@ -14,12 +14,12 @@ const QuizContainer = ({data}:IDetailData) => {
     const { quizState } = state
 
     useEffect(() => {
-        if (data?.id) {
+        if (data?._id) {
             dispatch({ type: 'LOAD_SAVE_DATA' });
             dispatch({ 
                 type: 'ADD_DATA', 
                 payload: { 
-                    id: data.id, 
+                    id: data._id, 
                     contentLength: data.content.length
                 }
             })
@@ -31,7 +31,7 @@ const QuizContainer = ({data}:IDetailData) => {
 
     useEffect(()=> {
         if(saveData){
-            const index = saveData.findIndex(item => item.id === data?.id);
+            const index = saveData.findIndex(item => item.id === data?._id);
             if(saveData[index]?.clear) dispatch({ type: 'SET_QUIZ_STATE', payload: "RESULT"})
         }
     },[saveData])

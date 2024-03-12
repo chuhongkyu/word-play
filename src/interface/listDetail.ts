@@ -3,7 +3,7 @@ export interface IDetailData {
 }
 
 export interface IQuiz {
-    id: number;
+    _id: string;
     subtitle: string;
     startDatetime: string;
     content: IContent[]
@@ -12,6 +12,6 @@ export interface IQuiz {
 interface IContent{
     tts: string;
     words: string[],
-    answerKr: string
+    answerEn: string
     distractors: string[]
 }

@@ -2,13 +2,12 @@ export type QuizState = "READY" | "START" | "STATUS" | "RESULT";
 
 export type ContentType = 'success' | 'fail' | 'current' | 'default';
 
-
 interface ISaveData {
-    id: number;
-    record: ContentType[]
-    endQ: number;
-    clear: boolean
-    try: number;
+  id: string;
+  record: ContentType[]
+  endQ: number;
+  clear: boolean
+  try: number;
 }
   
 export interface IState {
@@ -18,8 +17,8 @@ export interface IState {
 }
 
 interface SetCurrentAction {
-    type: "SET_CURRENT";
-    payload: number;
+  type: "SET_CURRENT";
+  payload: number;
 }
 
 interface SetQuizStateAction {
@@ -38,14 +37,14 @@ interface SetSaveDataAction {
 interface CheckCurrentDataAction {
   type: "CHECK_CURRENT_DATA" | "RESET_QUIZ";
   payload: {
-    id: number
+    id: string
   }
 }
 
 interface UpdateSaveDataAction {
   type: "ADD_DATA" | "SUCCESS_QUIZ" | "FAIL_QUIZ";
   payload: {
-    id: number;
+    id: string
     contentLength: number
   };
 }

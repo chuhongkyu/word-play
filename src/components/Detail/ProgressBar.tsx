@@ -10,7 +10,7 @@ const ProgressBar = ({data}:IDetailData) => {
 
     useEffect(()=>{
         if(saveData){
-            const index = saveData.findIndex(item => item.id === data?.id);
+            const index = saveData.findIndex(item => item.id === data?._id);
             const records = saveData[index]?.record
             setBars(records)
             // console.log(saveData)

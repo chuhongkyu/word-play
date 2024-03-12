@@ -3,23 +3,15 @@
 import useFormattedDate from "@/utils/useFormatteDate"
 import Link from "next/link"
 import styles from "@/styles/List.module.scss";
-import { IHomeData } from "@/interface/listType";
-import { useEffect, useState } from "react";
+import { IList } from "@/interface/listType";
 
-const ListContainer = ({lists}:{lists:IHomeData}) => {
-    const [item, setItem] = useState(lists?.data);
-    
-    useEffect(()=>{
-        const dummylist = lists?.data?.slice().reverse()
-        setItem(dummylist)
-    },[lists])
-
+const ListContainer = ({data}:{ data: IList[]}) => {
     return(
         <ul className={`${styles.list}`}>
-            {item.map((el) =>{
+            {data?.map((el) =>{
                 return(
-                    <li key={el.id + "KEY"}>
-                        <Link href={`/detail/${el.id}`}>
+                    <li key={el._id + "KEY"}>
+                        <Link href={`/detail/${el._id}`}>
                             <div className={`${styles.listWrapper}`}>
                                 <b className={`${styles.subtitle}`}>{el.subtitle}</b>
                                 <p className={`${styles.startDatetime}`}>{useFormattedDate(el.startDatetime)}</p>

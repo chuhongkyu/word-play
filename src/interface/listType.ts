@@ -1,9 +1,5 @@
-export interface IHomeData {
-  data: IList[]
-}
-  
 export interface IList {
-  id: number;
+  _id: string;
   subtitle: string;
   startDatetime: string;
 }

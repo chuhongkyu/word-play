@@ -62,14 +62,14 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
         if(quizState === "START" || "READY"){
             dispatch({
                 type: 'CHECK_CURRENT_DATA', 
-                payload: { id: quizzes?.id }
+                payload: { id: quizzes?._id }
             })
         }
         
     },[quizState, quizzes])
 
     useEffect(()=>{
-        const index = saveData.findIndex(item => item.id === quizzes?.id);
+        const index = saveData.findIndex(item => item.id === quizzes?._id);
         if(index !== -1){
             dispatch({ type: 'SET_CURRENT', payload: saveData[index].endQ });
         }
@@ -108,7 +108,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
             dispatch({
                 type: "SUCCESS_QUIZ", 
                 payload: { 
-                    id: quizzes.id, 
+                    id: quizzes._id, 
                     contentLength: quizzes.content.length 
                 }
             });
@@ -116,7 +116,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
             dispatch({ 
                 type: "FAIL_QUIZ", 
                 payload: { 
-                    id: quizzes.id, 
+                    id: quizzes._id, 
                     contentLength: quizzes.content.length 
                 }
             });
@@ -130,7 +130,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
         <>
             {isModal && quizState === "READY"  ? <CountDownModal onClose={handleModalClose}/> : null}
             <section className={`${styles.quizContainer}`}>
-                <h5 className={`${styles.title} heading-4`}>{quizzes?.content[currentQ]?.answerKr}</h5>
+                <h5 className={`${styles.title} heading-4`}>{quizzes?.content[currentQ]?.answerEn}</h5>
 
                 <QuizForm
                     userInput={userInput}
