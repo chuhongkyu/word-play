@@ -31,7 +31,7 @@ $resultbtn-height: 95px;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        border: 2px solid #00D37A;
+        border: 2px solid $color-green-2;
         background-color: #fff;
         display: flex;
         justify-content: center;
@@ -181,6 +181,7 @@ $resultbtn-height: 95px;
                 padding: 13px 16px;
                 background: #fff;
                 border: 1px solid $color-gray-4;
+                cursor: pointer;
             }
             .optionBtn input[type="checkbox"]:checked + label {
                 color: $color-gray-4;
@@ -221,7 +222,7 @@ $resultbtn-height: 95px;
     width: 64px;
     height: 64px;
     z-index: 2;
-    background: linear-gradient(90deg, #00D37A 0%, #54D6FF 100%);
+    background: linear-gradient(90deg, $color-green-1 0%, #54D6FF 100%);
     border-radius: 50%;
     display: flex;
     justify-content: center;

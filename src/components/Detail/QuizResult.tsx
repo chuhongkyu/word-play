@@ -36,7 +36,7 @@ const QuizResult = ({data}:IDetailData) => {
     const [random, setRandom] = useState<number>(0)
 
     useEffect(()=>{
-        const index = state.saveData.findIndex(item => item.id === data?.id);
+        const index = state.saveData.findIndex(item => item.id === data?._id);
         const records = state.saveData[index]?.record
         const failCount = records?.filter(item => item === "fail").length;
         const successCount = records?.filter(item => item === "success").length;
@@ -82,13 +82,13 @@ const QuizResult = ({data}:IDetailData) => {
             tryCount: tryCount
         });
 
-    }, [state.saveData, data?.id]); 
+    }, [state.saveData, data?._id]); 
 
     const onHandleReTry = () => {
         dispatch({ 
             type: 'RESET_QUIZ', 
             payload: { 
-                id: data.id, 
+                id: data._id, 
             }
         })
         dispatch({ type: 'SET_CURRENT', payload: 0})
@@ -131,11 +131,11 @@ const QuizResult = ({data}:IDetailData) => {
                 <div className={styles.detailBtnGroup}>
                     {stamp?.resultState.type === "Perfect" ? 
                     <>
-                        <Link href={"/"} className="btn">확인</Link>
+                        <Link href={"/"} className="btn">OK</Link>
                     </>:
                     <>
-                        <button className="btn white" onClick={onHandleReTry}>다시 풀어보기</button>
-                        <Link href={"/"} className="btn">확인</Link>
+                        <button className="btn white" onClick={onHandleReTry}>Try Again</button>
+                        <Link href={"/"} className="btn">OK</Link>
                     </>
                     }
                 </div>

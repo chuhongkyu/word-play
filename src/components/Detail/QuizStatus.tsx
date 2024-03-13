@@ -20,8 +20,8 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
     }
 
     useEffect(()=>{
-        const index = saveData.findIndex(item => item.id === data.id);
-        setRecord(saveData[index].record[currentQ])
+        const index = saveData.findIndex(item => item.id === data._id);
+        setRecord(saveData[index]?.record[currentQ])
         
         if(saveData[index].clear){
             setResultBtn(saveData[index].clear)
@@ -34,20 +34,20 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
                 {record === "success" ? (
                 <>
                     <img src={'/assets/detail/test-success.png'} alt="success"/>
-                    <span className="heading-3"><b>정답</b>이에요!</span>
+                    <span className="heading-3"><b>Success</b>!</span>
                 </>
                 ):(
                 <>
                     <img src={'/assets/detail/test-fail.png'} alt="fail"/>
-                    <span className="heading-3"><b className={`${styles.redText}`}>오답</b>이에요!</span>
+                    <span className="heading-3"><b className={`${styles.redText}`}>Fail</b>!</span>
                 </>
                 )
                 }
             </div>
             <div className="btn-container">
                 {resultBtn ? 
-                    <button className="btn" onClick={goResultBtn}>결과 확인하기</button> :
-                    <button className="btn" onClick={goNextQuizBtn}>다음 문제</button>
+                    <button className="btn" onClick={goResultBtn}>Check the results</button> :
+                    <button className="btn" onClick={goNextQuizBtn}>NEXT</button>
                 }
             </div>
         </section>

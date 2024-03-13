@@ -143,7 +143,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
                 <div className={`${styles.quizInterface}`}>
                     <div className={`${styles.group}`}>
                         <CountdownTimer isStart={quizState === "START" ? true : false} onClose={timeOverClose }/>
-                        <button className="btn" disabled={btnState} onClick={onHandleSubmit}>다 풀었어요</button>
+                        <button className="btn" disabled={btnState} onClick={onHandleSubmit}>I'm done</button>
                     </div>
                 </div>
             </section>

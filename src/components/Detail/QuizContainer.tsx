@@ -49,7 +49,7 @@ const QuizContainer = ({data}:IDetailData) => {
 
     return(
         <>
-            <Header text={quizState === "RESULT" ? "테스트 결과" :"테스트"}/>
+            <Header text={quizState === "RESULT" ? "TEST RESULT" :"TEST"}/>
             {quizState !== "RESULT" && <ProgressBar data={data}/>}
             {renderQuizComponents()}
         </>

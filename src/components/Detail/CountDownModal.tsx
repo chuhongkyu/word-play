@@ -28,14 +28,14 @@ const CountDownModal = ({ onClose }:ICountProps) => {
                     <p>{countdown}</p>
                     <span></span>
                 </div>
-                <h4 className="heading-4">곧 테스트가 시작됩니다!</h4>
+                <h4 className="heading-4">The test will begin soon!</h4>
                 <b>
-                    총 99문제가 출제됩니다.<br/>
-                    1문제 당 45초의 시간 제한이 있습니다.
+                    There are a total of 99 questions.<br/>
+                    There is a time limit of 50 seconds per question.
                 </b>
                 <p className={`${styles.caption} body-1`}>
                     <span>Hint</span>
-                    정답 문장을 들어볼 수 있어요
+                    I can hear the answer sentence
                 </p>
             </div>
 

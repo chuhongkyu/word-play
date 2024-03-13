@@ -7,7 +7,7 @@ interface ICountProps {
 }
 
 const CountdownTimer = ({isStart, onClose }:ICountProps) => {
-    const [countdown, setCountdown] = useState(45);
+    const [countdown, setCountdown] = useState(50);
 
     useEffect(() => {
         if (!isStart) return;
@@ -26,7 +26,7 @@ const CountdownTimer = ({isStart, onClose }:ICountProps) => {
 
     return(
         <div className={`${styles.timerBox}`}>
-            <p className="body-2">남은시간 <span>{countdown.toString().padStart(2, '0')}초</span></p>
+            <p className="body-2">Remaining Time<span>{countdown.toString().padStart(2, '0')}second</span></p>
         </div>
     )
 }
