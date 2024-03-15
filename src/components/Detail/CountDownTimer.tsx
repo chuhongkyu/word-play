@@ -26,7 +26,9 @@ const CountdownTimer = ({isStart, onClose }:ICountProps) => {
 
     return(
         <div className={`${styles.timerBox}`}>
-            <p className="body-2">Remaining Time<span>{countdown.toString().padStart(2, '0')}second</span></p>
+            <p className="body-2">
+                Remaining<br/>Time
+                <span>{countdown.toString().padStart(2, '0')}</span>second</p>
         </div>
     )
 }

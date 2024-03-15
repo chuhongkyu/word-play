@@ -1,10 +1,9 @@
 import { QuizProvider } from "@/components/QuizProvider";
-import "@/styles/globals.scss";
+import "@/styles/style.scss";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-
   const resizeHandler = () =>  {
     const maxWidth = 656;
     let vw = Math.min(window.innerWidth, maxWidth) * 0.01;

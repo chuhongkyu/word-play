@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "@/styles/List.module.scss";
 import Header from "@/components/Header";
 import ListContainer from "@/components/Home/ListContainer";
 import Banner from "@/components/Home/Banner";

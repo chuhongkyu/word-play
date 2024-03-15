@@ -9,7 +9,7 @@ export interface IQuiz {
     content: IContent[]
 }
 
-interface IContent{
+export interface IContent{
     tts: string;
     words: string[],
     answerEn: string

@@ -6,7 +6,7 @@ interface ICountProps {
 }
 
 const CountDownModal = ({ onClose }:ICountProps) => {
-    const [countdown, setCountdown] = useState(3);
+    const [countdown, setCountdown] = useState(5);
 
     useEffect(() => {
         if (countdown === 0) {
@@ -29,13 +29,10 @@ const CountDownModal = ({ onClose }:ICountProps) => {
                     <span></span>
                 </div>
                 <h4 className="heading-4">The test will begin soon!</h4>
-                <b>
-                    There are a total of 99 questions.<br/>
-                    There is a time limit of 50 seconds per question.
-                </b>
+                <b>There is a time limit of 50 seconds per question.</b>
                 <p className={`${styles.caption} body-1`}>
                     <span>Hint</span>
-                    I can hear the answer sentence
+                    You can hear the answer sentence
                 </p>
             </div>
 

@@ -1,4 +1,5 @@
 @import './variables';
+@import './mixins';
 
 $resultbtn-height: 95px;
 
@@ -107,15 +108,15 @@ $resultbtn-height: 95px;
 
 .timerBox{
     color: $color-black-1;
-    
     p{
         display: flex;
         align-items: center;
+        
     }
     span{
-        margin-left: 12px;  
+        padding: 0 12px;
         display: block;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 150%;
         font-weight: 700;
     }
@@ -125,10 +126,10 @@ $resultbtn-height: 95px;
     padding: 0 20px;
     .title{
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: __vw(20px)
     }
     .quizForm{
-        margin-bottom: calc($interface-height + 20px);
+        padding-bottom: calc($interface-height + __vw(20px));
         .quizAnswerSheet{
             overflow-x: hidden;
             position: relative;
@@ -216,6 +217,7 @@ $resultbtn-height: 95px;
 }
 
 .soundBtn{
+    cursor: pointer;
     position: fixed;
     bottom: calc($interface-height + 16px);
     right: 20px;
@@ -242,7 +244,9 @@ $resultbtn-height: 95px;
         border-radius: 50%;
     }
     &:disabled{
+        pointer-events: none;
         background: $color-gray-4;
+        transition: 300ms ease-in-out;
     }
 }
 
