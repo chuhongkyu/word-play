@@ -5,22 +5,24 @@ import Banner from "@/components/Home/Banner";
 import { Suspense } from "react";
 import { IList } from "@/interface/listType";
 import Layout from "@/components/Layout";
-
-
-const BaseURL = process.env.NEXTAUTH_URL
+import { connectDB } from "@/utils/database";
 
 export const getStaticProps = async () => {
-  const response = await fetch(`${BaseURL}/api/test/list`);
-  if(response.ok){
-    const data = await response.json();
+  try {
+    const client = await connectDB;
+    const db = client.db('forum');
+    const results = await db.collection('test').find({}, { projection: { contents: 0 } }).toArray();
+    const data = JSON.parse(JSON.stringify(results));
     return { props: { data }}
-  }else{
+
+  }catch(error){
+    console.log(error)
     throw new Error('API 에러')
   }
 }
 
 export default function Home({ data }: { data: IList[]}) {
-  console.log(data)
+  // console.log(data)
   return (
     <>
       <Head>
