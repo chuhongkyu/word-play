@@ -6,8 +6,8 @@ const useFormattedDate = (startDatetime:string) => {
 
   useEffect(() => {
     const newDateForm = new Date(startDatetime);
-    // console.log(newDateForm)
-    const year = newDateForm.getFullYear().toString().substr(-2);
+    // console.log(newDateForm, newDateForm.getMonth())
+    const year = newDateForm.getFullYear().toString()
     const month = (newDateForm.getMonth() + 1).toString().padStart(2, '0');
     const day = newDateForm.getDate().toString().padStart(2, '0');
 

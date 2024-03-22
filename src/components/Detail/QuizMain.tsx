@@ -33,12 +33,14 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
 
     const onHandleCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
         const { value, checked, id: key } = e.target;
-
+        console.log(checked)
         if (checked) {
             if (!userInput.some(item => item.key === key)) {
                 setUserInput(userInput.concat([{ value, key }]));
             }
         } else {
+            console.log(key, value)
+            //필터를 통해서 제거
             setUserInput(userInput.filter(item => item.key !== key));
         }
     };

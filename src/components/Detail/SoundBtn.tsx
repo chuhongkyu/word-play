@@ -1,7 +1,7 @@
 import styles from "@/styles/Detail.module.scss";
-import { useRef, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 
-const SoundBtn = ({url = "/assets/audio/01-01.wav"} : {url: string}) => {
+const SoundBtn = memo(({url = "/assets/audio/01-01.wav"} : {url: string}) => {
     const [playCount, setPlayCount] = useState(2); 
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -29,6 +29,6 @@ const SoundBtn = ({url = "/assets/audio/01-01.wav"} : {url: string}) => {
                 />
         </button>
     )
-}
+})
 
 export default SoundBtn;
