@@ -12,8 +12,8 @@ const ListContainer = ({data}:{ data: IList[]}) => {
                     <li key={el._id + "KEY"}>
                         <Link href={`/detail/${el._id}`}>
                             <div className="list-wrapper">
-                                <b className="subtitle">{el.subtitle}</b>
-                                <p className="date-time">{useFormattedDate(el.startDatetime)}</p>
+                                <span className="subtitle">{el.subtitle}</span>
+                                <span className="date-time">{useFormattedDate(el.startDatetime)} {el?.testType === "list" ? <b className="mark">list</b> : <b className="mark">select</b>}</span>
                             </div>
                             <div className="arrow-btn">
                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
