@@ -19,7 +19,6 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
-* { font-family: var(--font-roboto) }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -31,6 +30,7 @@ html,
 body,
 #__next{
 	width: 100%;
+	font-family: var(--font-notoSansKr)
 }
 
 #__next{

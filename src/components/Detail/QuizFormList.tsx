@@ -15,9 +15,9 @@ interface IProps {
 
 const QuizFormList = ({userInput, options, onHandleRadio}:IProps) => {
     return(
-        <div className={styles.quizForm}>
-            <div className={styles.quizAnswerSheet}>
-                <div className={styles.dummyLine}>
+        <div className={styles['quiz-form']}>
+            <div className={styles['quizanswer-sheet']}>
+                <div className={styles['dummy-line']}>
                     <div/>
                 </div>
                 <div className={styles['word-container']}>

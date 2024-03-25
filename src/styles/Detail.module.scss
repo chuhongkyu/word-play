@@ -127,9 +127,9 @@ $resultbtn-height: 95px;
         display: block;
         margin-bottom: __vw(20px)
     }
-    .quizForm{
+    .quiz-form{
         padding-bottom: calc($interface-height + __vw(20px));
-        .quizAnswerSheet{
+        .quizanswer-sheet{
             overflow-x: hidden;
             position: relative;
             margin-bottom: 16px;
@@ -165,12 +165,11 @@ $resultbtn-height: 95px;
                     border: 1px solid $color-gray-4;
                 }
             }
-            .dummyLine{
+            .dummy-line{
                 display: flex;
                 flex-direction: column;
                 div{
-                    height: 49px;
-                    box-sizing: border-box;
+                    height: 51.5px;
                     border-bottom: 1px solid #64696E;
                 }
             }

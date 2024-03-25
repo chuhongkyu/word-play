@@ -9,7 +9,7 @@ import { useQuiz } from "@/utils/useQuiz";
 import dynamic from "next/dynamic";
 import QuizFormList from "./QuizFormList";
 
-const QuizForm = dynamic(() => import("./QuizForm"));
+const QuizForm = dynamic(() => import("./QuizForm"), { ssr: false});
 
 const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
     const { state, dispatch } = useQuiz()
