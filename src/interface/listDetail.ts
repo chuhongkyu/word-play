@@ -4,6 +4,7 @@ export interface IDetailData {
 
 export interface IQuiz {
     _id: string;
+    testType: string;
     subtitle: string;
     startDatetime: string;
     content: IContent[]
@@ -12,6 +13,6 @@ export interface IQuiz {
 export interface IContent{
     tts: string;
     words: string[],
-    answerEn: string
+    answerKr: string
     distractors: string[]
 }

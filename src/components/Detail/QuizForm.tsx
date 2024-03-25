@@ -51,11 +51,11 @@ const QuizForm = ({userInput, setUserInput, options, onHandleCheckBox}:IProps) =
                 <DragDropContext onDragEnd={onDragEnd}>
                     <Droppable droppableId="droppable" direction="horizontal">
                         {(provided) => (
-                        <div {...provided.droppableProps} ref={provided.innerRef} className={styles.wordContainer}>
+                        <div {...provided.droppableProps} ref={provided.innerRef} className={styles['word-container']}>
                             {userInput.map((el, i) => (
                             <Draggable key={el.key + i + "AnswerKey"} draggableId={el.key + i + "AnswerKey"} index={i}>
                                 {(provided) => (
-                                <span ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={styles.wordBtn}>
+                                <span ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={styles['word-btn']}>
                                     {el.value}
                                 </span>
                                 )}
@@ -67,10 +67,10 @@ const QuizForm = ({userInput, setUserInput, options, onHandleCheckBox}:IProps) =
                     </Droppable>
                 </DragDropContext>
             </div>
-            <div className={`${styles.optionsSheet}`}>
+            <div className={styles['options-sheet']}>
                 {options.map((word, i)=>{
                     return(
-                        <span key={word + i + "Option-KEY"} className={`${styles.optionBtn}`}>
+                        <span key={word + i + "Option-KEY"} className={styles['option-btn']}>
                             <input
                                 type="checkbox"
                                 id={word + i + ""}

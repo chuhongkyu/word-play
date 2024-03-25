@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/Detail.module.scss";
 
 interface ICountProps {
+    type: string;
     onClose: () => void
 }
 
-const CountDownModal = ({ onClose }:ICountProps) => {
+const CountDownModal = ({type, onClose }:ICountProps) => {
     const [countdown, setCountdown] = useState(5);
 
     useEffect(() => {
@@ -28,12 +29,14 @@ const CountDownModal = ({ onClose }:ICountProps) => {
                     <p>{countdown}</p>
                     <span></span>
                 </div>
-                <h4 className="heading-4">The test will begin soon!</h4>
-                <b>There is a time limit of 50 seconds per question.</b>
-                <p className={`${styles.caption} body-1`}>
-                    <span>Hint</span>
-                    You can hear the answer sentence
-                </p>
+                <h4 className="heading-4">테스트가 곧 시작됩니다!</h4>
+                <b>질문 당 50초의 제한 시간이 있습니다.</b>
+                {type === "select" ? 
+                    <p className={`${styles.caption} body-1`}>
+                        <span>Hint</span>
+                        문제에 대한 설명을 들을 수 있습니다.
+                    </p> : null
+                }
             </div>
 
             <div className={`${styles.blur}`}></div>

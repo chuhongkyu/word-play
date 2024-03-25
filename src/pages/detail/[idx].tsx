@@ -1,5 +1,4 @@
 import { IDetailData } from "@/interface/listDetail";
-import { IList } from "@/interface/listType";
 import { GetStaticProps } from "next";
 import QuizContainer from "@/components/Detail/QuizContainer";
 import Layout from "@/components/Layout";
@@ -52,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 }
 
 export default function Detail({ data }:IDetailData){
-    console.log(data)
+    // console.log(data)
     return(
         <Layout>
             <QuizContainer data={data}/>
