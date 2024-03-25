@@ -1,5 +1,4 @@
 import { IDetailData } from "@/interface/listDetail";
-import { IList } from "@/interface/listType";
 import { GetStaticProps } from "next";
 import QuizContainer from "@/components/Detail/QuizContainer";
 import Layout from "@/components/Layout";

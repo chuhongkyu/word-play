@@ -81,7 +81,6 @@ $resultbtn-height: 95px;
         .caption{
             display: flex;
             align-items: center;
-            color: $hint-color;
             span{
                 border-radius: 8px;
                 text-transform: uppercase;
@@ -90,8 +89,8 @@ $resultbtn-height: 95px;
                 font-size: 10px;
                 font-weight: 500;
                 line-height: 100%;
-                color: white;
-                background-color: $hint-color;
+                color: black;
+                background-color: $root-color;
             }
         }
     }
@@ -134,14 +133,28 @@ $resultbtn-height: 95px;
             overflow-x: hidden;
             position: relative;
             margin-bottom: 16px;
-            .wordContainer{
+            .word-container{
                 position: absolute;
                 top: 0;
                 left: 0;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 4px;
-                .wordBtn{
+                .word-answer{
+                    color: $color-black-1;
+                    font-size: 14px;
+                    font-weight: 500;
+                    display: inline-block;
+                    padding: 13px 0;
+                }
+                .word-text{
+                    color: $color-black-1;
+                    font-size: 14px;
+                    font-weight: 500;
+                    display: inline-block;
+                    padding: 13px 16px;
+                }
+                .word-btn{
                     color: $color-black-1;
                     border-radius: 8px;
                     font-size: 14px;
@@ -163,17 +176,41 @@ $resultbtn-height: 95px;
             }
         }
 
-        .optionsSheet{
+        .options-sheet{
             background: $color-gray-2;
             padding: 8px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 4px;
             border-radius: 8px;
-            .optionBtn input[type="checkbox"] {
+            &[data-type="list"]{
+                display: block;
+                background: none;
+                .option-btn{
+                    display: flex;
+                    align-items: center;
+                }
+                .option-btn input[type="radio"]{
+                    margin: 0;
+                }
+                .option-btn label{
+                    color: $color-black-1;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 150%;
+                    display: block;
+                    padding: 10px 16px;
+                    background: transparent;
+                    border: none;
+                    border-radius: initial;
+                    // border-bottom: 1px solid $color-gray-4;
+                }
+            }
+
+            .option-btn input[type="checkbox"] {
                 display: none;
             }
-            .optionBtn label{
+            .option-btn label{
                 color: $color-black-1;
                 border-radius: 8px;
                 font-size: 14px;
@@ -184,7 +221,7 @@ $resultbtn-height: 95px;
                 border: 1px solid $color-gray-4;
                 cursor: pointer;
             }
-            .optionBtn input[type="checkbox"]:checked + label {
+            .option-btn input[type="checkbox"]:checked + label {
                 color: $color-gray-4;
                 border: 1px solid $color-gray-3;
                 background: $color-gray-3;
@@ -216,7 +253,7 @@ $resultbtn-height: 95px;
     }
 }
 
-.soundBtn{
+.sound-btn{
     cursor: pointer;
     position: fixed;
     bottom: calc($interface-height + 16px);
@@ -224,7 +261,7 @@ $resultbtn-height: 95px;
     width: 64px;
     height: 64px;
     z-index: 2;
-    background: linear-gradient(90deg, $color-green-1 0%, #54D6FF 100%);
+    background: linear-gradient(90deg, $root-color 0%, #54D6FF 100%);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -240,7 +277,7 @@ $resultbtn-height: 95px;
         width: 24px;
         height: 24px;
         color: #fff;
-        background: $hint-color;
+        background: $root-color;
         border-radius: 50%;
     }
     &:disabled{
@@ -251,7 +288,7 @@ $resultbtn-height: 95px;
 }
 
 @media screen and (max-width:1024px) {
-    .soundBtn{
+    .sound-btn{
         right: 20px;
     }
 }
@@ -301,7 +338,7 @@ $resultbtn-height: 95px;
                 background: $color-red-1;
             }
             &[data-bar="success"]{
-                background: $color-green-3;
+                background: $root-color;
             }
             &[data-bar="current"]{
                 background: $color-gray-5;

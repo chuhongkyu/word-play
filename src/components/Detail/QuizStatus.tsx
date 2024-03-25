@@ -34,20 +34,20 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
                 {record === "success" ? (
                 <>
                     <img src={'/assets/detail/test-success.png'} alt="success"/>
-                    <span className="heading-3"><b>Success</b>!</span>
+                    <span className="heading-3"><b>성공</b>!</span>
                 </>
                 ):(
                 <>
                     <img src={'/assets/detail/test-fail.png'} alt="fail"/>
-                    <span className="heading-3"><b className={`${styles.redText}`}>Fail</b>!</span>
+                    <span className="heading-3"><b className={`${styles.redText}`}>실패</b>!</span>
                 </>
                 )
                 }
             </div>
             <div className="btn-container">
                 {resultBtn ? 
-                    <button className="btn" onClick={goResultBtn}>Check the results</button> :
-                    <button className="btn" onClick={goNextQuizBtn}>NEXT</button>
+                    <button className="btn" onClick={goResultBtn}>결과 확인하기</button> :
+                    <button className="btn" onClick={goNextQuizBtn}>다음에</button>
                 }
             </div>
         </section>

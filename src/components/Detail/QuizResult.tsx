@@ -41,20 +41,20 @@ const QuizResult = ({data}:IDetailData) => {
         if(failCount  === 0){
             resultState = {
                 type: "Perfect",
-                text: "Perfect.\nEverything was right!",
+                text: "완벽해요!",
                 color : "#0DB6FF",
             }
         }else if(failCount  <= 2){
             resultState = {
                 type: "Good",
-                text: "Good!",
+                text: "최고 입니다!",
                 color :"#00D6C9",
             }
         }
         else{
             resultState = {
                 type: "fail",
-                text: "That's too bad.\nYou'll be able to do better next time.",
+                text: "아쉽네요.😂\n다음에 더 잘해봅시다!",
                 color :"#FF5F5F",
             }
         }
@@ -104,17 +104,17 @@ const QuizResult = ({data}:IDetailData) => {
                     <p>{stamp?.success}/{stamp?.total}</p>
                     }
                 </div>
-                {stamp?.tryCount > 1 && <div className={styles.resultTryCount} style={{color: stamp?.resultState.color}}>{stamp?.tryCount} Try</div> }
+                {stamp?.tryCount > 1 && <div className={styles.resultTryCount} style={{color: stamp?.resultState.color}}>{stamp?.tryCount}번째 시도</div> }
             </div>
             <div className={`${styles.detailBtn} btn-container`}>
                 <div className={styles.detailBtnGroup}>
                     {stamp?.resultState.type === "Perfect" ? 
                     <>
-                        <Link href={"/"} className="btn">OK</Link>
+                        <Link href={"/"} className="btn">확인</Link>
                     </>:
                     <>
-                        <button className="btn white" onClick={onHandleReTry}>Try Again</button>
-                        <Link href={"/"} className="btn">OK</Link>
+                        <button className="btn white" onClick={onHandleReTry}>다시 하기</button>
+                        <Link href={"/"} className="btn">확인</Link>
                     </>
                     }
                 </div>

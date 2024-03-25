@@ -7,6 +7,7 @@ import SoundBtn from "./SoundBtn";
 import { useQuiz } from "@/utils/useQuiz";
 // import QuizForm from "./QuizForm";
 import dynamic from "next/dynamic";
+import QuizFormList from "./QuizFormList";
 
 const QuizForm = dynamic(() => import("./QuizForm"));
 
@@ -33,7 +34,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
 
     const onHandleCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
         const { value, checked, id: key } = e.target;
-        console.log(checked)
+
         if (checked) {
             if (!userInput.some(item => item.key === key)) {
                 setUserInput(userInput.concat([{ value, key }]));
@@ -43,6 +44,11 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
             //필터를 통해서 제거
             setUserInput(userInput.filter(item => item.key !== key));
         }
+    };
+
+    const onHandleRadio = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value, id: key } = e.target;
+        setUserInput([{ value, key }]);
     };
 
     const shuffleWord = (array:string[]) => {
@@ -98,7 +104,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
         return true;
     };
 
-    const onHandleSubmit = (e:React.MouseEvent<HTMLButtonElement>)=>{
+    const onHandleSubmit = ()=>{
         onHandleData()
     }
 
@@ -130,22 +136,26 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
 
     return(
         <>
-            {isModal && quizState === "READY"  ? <CountDownModal onClose={handleModalClose}/> : null}
-            <section className={`${styles.quizContainer}`}>
-                <h5 className={`${styles.title} heading-4`}>{quizzes?.content[currentQ]?.answerEn}</h5>
-
+            {isModal && quizState === "READY"  ? <CountDownModal type={quizzes?.type} onClose={handleModalClose}/> : null}
+            <section className={styles.quizContainer}>
+                <h5 className={`${styles.title} heading-4`}>{quizzes?.content[currentQ]?.answerKr}</h5>
+                {quizzes?.type === "list" ? 
+                <QuizFormList
+                    userInput={userInput}
+                    options={options} 
+                    onHandleRadio={onHandleRadio} />
+                :
                 <QuizForm
                     userInput={userInput}
                     setUserInput={setUserInput} 
                     options={options} 
                     onHandleCheckBox={onHandleCheckBox} />
-
-
-                <SoundBtn url={quizzes?.content[currentQ]?.tts}/>
+                }
+                {quizzes.type === "select" ? <SoundBtn url={quizzes?.content[currentQ]?.tts}/> : null}
                 <div className={`${styles.quizInterface}`}>
                     <div className={`${styles.group}`}>
                         <CountdownTimer isStart={quizState === "START" ? true : false} onClose={timeOverClose }/>
-                        <button className="btn" disabled={btnState} onClick={onHandleSubmit}>I'm done</button>
+                        <button className="btn" disabled={btnState} onClick={onHandleSubmit}>제출하기</button>
                     </div>
                 </div>
             </section>

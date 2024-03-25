@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 interface IAdmin {
     subtitle: string;
+    type: string;
     startDatetime: string;
     content: IContent[]
 }
@@ -11,9 +12,10 @@ const AdminForm = () => {
     const [formData, setFormData] = useState<IAdmin>({
         subtitle: '',
         startDatetime: '',
+        type: '',
         content: [
             {
-                answerEn: '',
+                answerKr: '',
                 distractors: [],
                 words: [],
                 tts: ''
@@ -41,7 +43,7 @@ const AdminForm = () => {
             content: [
                 ...formData.content,
                 {
-                    answerEn: '',
+                    answerKr: '',
                     distractors: [],
                     words: [],
                     tts: ''
@@ -65,6 +67,10 @@ const AdminForm = () => {
                     <input type="text" id="subtitle" name="subtitle" value={formData.subtitle} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
+                    <label htmlFor="type">Type:</label>
+                    <input type="text" id="type" name="type" value={formData.type} onChange={handleInputChange} />
+                </div>
+                <div className="form-group">
                     <label htmlFor="startDatetime">Start Datetime:</label>
                     <input type="datetime-local" id="startDatetime" name="startDatetime" value={formData.startDatetime} onChange={handleInputChange} />
                 </div>
@@ -72,8 +78,8 @@ const AdminForm = () => {
                     <div key={index} className="question-group">
                         <h3>Question {index + 1}</h3>
                         <div className="form-group">
-                            <label htmlFor={`answerEn${index}`}>Answer (English):</label>
-                            <input type="text" id={`answerEn${index}`} name={`content[${index}].answerEn`} value={question.answerEn} onChange={(e) => handleInputChange(e, index)} />
+                            <label htmlFor={`answerKr${index}`}>Answer (English):</label>
+                            <input type="text" id={`answerKr${index}`} name={`content[${index}].answerKr`} value={question.answerKr} onChange={(e) => handleInputChange(e, index)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor={`distractors${index}`}>Distractors:</label>
