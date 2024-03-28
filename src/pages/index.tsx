@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { IList } from "@/interface/listType";
 import Layout from "@/components/Layout";
 import { connectDB } from "@/utils/database";
+import Nav from "@/components/Home/Nav";
 
 export const getStaticProps = async () => {
   try {
@@ -35,6 +36,7 @@ export default function Home({ data }: { data: IList[]}) {
         <Banner/>
         <Suspense fallback={<div>Loading...</div>}>
           <ListContainer data={data}/>
+          <Nav/>
         </Suspense>
       </Layout>
     </>

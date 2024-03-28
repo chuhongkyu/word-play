@@ -23,7 +23,7 @@ const CountDownModal = ({type, onClose }:ICountProps) => {
     }, [countdown, onClose]);
 
     return(
-        <section className={`${styles.modalContainer}`}>
+        <section className={`${styles['modal-container']}`}>
             <div className={`${styles.modal}`}>
                 <div className={`${styles.timer}`}>
                     <p>{countdown}</p>

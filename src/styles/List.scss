@@ -47,6 +47,9 @@
         display: flex;
         width: 100%;
         border-bottom: 1px solid #DDDDDD;
+        &:last-of-type{
+            margin-bottom: 95px;
+        }
         a{
             width: 100%;
             display: flex;
@@ -78,6 +81,66 @@
             .arrow-btn{
                 
             }
+        }
+    }
+}
+
+.nav-bar{
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 12;
+    border-top: 1px solid $color-gray-3;
+    display: flex;
+    justify-content: center;
+    height: 74px;
+    .group{
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        .left{
+            display: flex;
+            align-items: center;
+            .coffee-text{
+                display: block;
+                margin-left: 20px;
+            }
+            .coffee-icon-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                width: 50px;
+                height: 50px;
+                background-color: $root-color;
+                border-radius: 50%;
+                &:hover{
+                    .toss-icon{
+                        transform: scale(1);
+                        transition: 300ms ease-in-out;
+                    }
+                }
+                .toss-icon{
+                    transform: scale(0.8);
+                    transition: 300ms ease-in-out;
+                }
+                .coffee-icon{
+                    position: absolute;
+                    z-index: 2;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                }
+            }
+               
         }
     }
 }
