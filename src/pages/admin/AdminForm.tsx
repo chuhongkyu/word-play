@@ -8,7 +8,7 @@ interface IContent{
     answerKr: string
     distractors: string[];
     words: string[];
-    tts: string;
+    tts?: string;
 }
 interface IAdmin {
     subtitle: string;
@@ -26,7 +26,6 @@ const initialData:IAdmin = {
         answerKr: '',
         distractors: [],
         words: [],
-        tts: ''
       }
     ]
 };
@@ -46,7 +45,7 @@ const AdminForm = () => {
 
         if (name === 'distractors' || name === 'words') {
             updatedContent[index][name] = value.split(',').map(item => item.trim());
-        } else {
+        }else {
             updatedContent[index][name] = value;
         }
         setFormData({ ...formData, content: updatedContent });
@@ -57,7 +56,7 @@ const AdminForm = () => {
           answerKr: '',
           distractors: [],
           words: [],
-          tts: ''
+
         };
         setFormData({ ...formData, content: [...formData.content, newContent] });
     };
@@ -84,6 +83,10 @@ const AdminForm = () => {
         }
     };
 
+    useEffect(()=>{
+        console.log(formData?.content)
+    },[formData])
+
     return (
         <div className={styles['admin-form-container']}>
             <h5>어드민 폼</h5>
@@ -91,7 +94,7 @@ const AdminForm = () => {
                 {/* 기본 입력 필드 */}
                 <div className={styles['basic-container']}>
                     <input type="text" name="subtitle" value={formData.subtitle} onChange={handleBasicInputChange} placeholder="Subtitle" />
-                    <select name="type" value={formData.testType} onChange={handleBasicInputChange}>
+                    <select name="testType" value={formData.testType} onChange={handleBasicInputChange}>
                       <option value="select">Select</option>
                       <option value="list">List</option>
                     </select>
@@ -102,8 +105,8 @@ const AdminForm = () => {
                   <div key={index} className={styles['form-content']}>
                     <h5>콘텐츠</h5>
                     <input type="text" name="answerKr" value={item.answerKr} onChange={(e) => handleContentInputChange(e, index)} placeholder="Answer (KR)" />
-                    <input type="text" name="distractors" value={item.distractors.join(', ')} onChange={(e) => handleContentInputChange(e, index)} placeholder="Distractors (comma-separated)" />
-                    <input type="text" name="words" value={item.words.join(', ')} onChange={(e) => handleContentInputChange(e, index)} placeholder="Words (comma-separated)" />
+                    <input style={{width: "100%"}} type="text" name="distractors" value={item.distractors.join(', ')} onChange={(e) => handleContentInputChange(e, index)} placeholder="Distractors (comma-separated)" />
+                    <input style={{width: "100%"}} type="text" name="words" value={item.words.join(', ')} onChange={(e) => handleContentInputChange(e, index)} placeholder="Words (comma-separated)" />
                     <input type="text" name="tts" value={item.tts} onChange={(e) => handleContentInputChange(e, index)} placeholder="TTS URL" />
                   </div>
                 ))}

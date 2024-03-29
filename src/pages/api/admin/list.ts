@@ -6,7 +6,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
         try {
             const client = await connectDB;
             const db = client.db('forum');
-            const data = JSON.parse(request.body);
+            const data = request.body;
 
             const result = await db.collection('test').insertOne(data);
             return response.status(200).json(result);
