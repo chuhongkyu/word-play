@@ -11,8 +11,8 @@ export interface IQuiz {
 }
 
 export interface IContent{
-    tts: string;
-    words: string[],
     answerKr: string
-    distractors: string[]
+    distractors: string[];
+    words: string[];
+    tts: string;
 }

@@ -1,0 +1,32 @@
+@import './variables';
+@import './mixins';
+
+
+.admin-form-container{
+    h5{
+        margin-bottom: 10px;
+    }
+    .form-container{
+        display: block;
+        .basic-container{
+            input{
+                display: block;
+                margin-bottom: 5px;
+            }
+            select{
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+        .form-content{
+            padding: 20px;
+            input{
+                display: block;
+                &:not(:last-of-type){
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
