@@ -108,7 +108,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
         onHandleData()
     }
 
-    const timeOverClose = () => onHandleData()
+    const timeOverClose = () => onHandleData();
 
     const onHandleData = () => {
         const check = checkAnswers();
@@ -137,7 +137,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
     return(
         <>
             {isModal && quizState === "READY"  ? <CountDownModal type={quizzes?.testType} onClose={handleModalClose}/> : null}
-            <section className={styles.quizContainer}>
+            <section className={styles['quiz-container']}>
                 <h5 className={`${styles.title} heading-4`}>{quizzes?.content[currentQ]?.answerKr}</h5>
                 {quizzes?.testType === "list" ? 
                 <QuizFormList
@@ -152,8 +152,8 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
                     onHandleCheckBox={onHandleCheckBox} />
                 }
                 {quizzes?.testType === "select" ? <SoundBtn url={quizzes?.content[currentQ]?.tts}/> : null}
-                <div className={`${styles.quizInterface}`}>
-                    <div className={`${styles.group}`}>
+                <div className={styles['quiz-interface']}>
+                    <div className={styles.group}>
                         <CountdownTimer isStart={quizState === "START" ? true : false} onClose={timeOverClose }/>
                         <button className="btn" disabled={btnState} onClick={onHandleSubmit}>제출하기</button>
                     </div>

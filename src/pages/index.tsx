@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
   try {
     const client = await connectDB;
     const db = client.db('forum');
-    const results = await db.collection('test').find({}, { projection: { contents: 0 } }).toArray();
+    const results = await db.collection('test').find({}, { projection: { contents: 0 } }).sort({startDatetime: -1}).toArray();
     const data = JSON.parse(JSON.stringify(results));
     return { props: { data }}
 

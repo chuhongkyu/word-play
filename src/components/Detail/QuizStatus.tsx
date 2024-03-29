@@ -29,8 +29,8 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
     },[])
 
     return(
-        <section className={`${styles.quizStatus}`}>
-            <div className={`${styles.iconContainer}`}>
+        <section className={styles['quiz-status']}>
+            <div className={styles['status-container']}>
                 {record === "success" ? (
                 <>
                     <img src={'/assets/detail/test-success.png'} alt="success"/>
@@ -39,7 +39,7 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
                 ):(
                 <>
                     <img src={'/assets/detail/test-fail.png'} alt="fail"/>
-                    <span className="heading-3"><b className={`${styles.redText}`}>실패</b>!</span>
+                    <span className="heading-3"><b className={styles['red-text']}>실패</b>!</span>
                 </>
                 )
                 }

@@ -41,7 +41,7 @@ const QuizFormList = ({userInput, options, onHandleRadio}:IProps) => {
                                 checked={userInput.some(item => item?.key === word + i)}
                                 onChange={onHandleRadio}
                             />
-                            <label htmlFor={word + i + ""}>{word}</label>
+                            <label htmlFor={word + i + ""}>{i + 1}. {word}</label>
                         </span>
                     )
                 })}

@@ -86,28 +86,28 @@ const QuizResult = ({data}:IDetailData) => {
     // }
 
     return(
-        <section className={styles.resultContainer}>
-            <div className={styles.resultWrapper}>
-                <div className={`${styles.resultText} heading-6`}>
+        <section className={styles['result-container']}>
+            <div className={styles['result-wrapper']}>
+                <div className={`${styles['result-text']} heading-6`}>
                     {stamp?.resultState.text}
                 </div>
-                <div className={`${styles.resultSheet}`}>
+                <div className={`${styles['result-sheet']}`}>
                     {stamp?.records?.map((el, i)=>{
                         return(
                             <Stamp key={i + "StampKEY"} color={stamp?.resultState?.color} state={el}/>
                         )
                     })}
                 </div>
-                <div className={`${styles.resultScroe}`} style={{color: stamp?.resultState.color}}>
+                <div className={`${styles['result-scroe']}`} style={{color: stamp?.resultState.color}}>
                     {stamp?.success === stamp?.total ? 
                     <p>만점</p>:
                     <p>{stamp?.success}/{stamp?.total}</p>
                     }
                 </div>
-                {stamp?.tryCount > 1 && <div className={styles.resultTryCount} style={{color: stamp?.resultState.color}}>{stamp?.tryCount}번째 시도</div> }
+                {stamp?.tryCount > 1 && <div className={styles['result-try-count']} style={{color: stamp?.resultState.color}}>{stamp?.tryCount}번째 시도</div> }
             </div>
-            <div className={`${styles.detailBtn} btn-container`}>
-                <div className={styles.detailBtnGroup}>
+            <div className={`${styles['detail-btn']} btn-container`}>
+                <div className={styles['detail-btn-group']}>
                     {stamp?.resultState.type === "Perfect" ? 
                     <>
                         <Link href={"/"} className="btn">확인</Link>

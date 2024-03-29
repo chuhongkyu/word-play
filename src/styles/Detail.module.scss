@@ -121,7 +121,7 @@ $resultbtn-height: 95px;
     }
 }
 
-.quizContainer{
+.quiz-container{
     padding: 0 20px;
     .title{
         display: block;
@@ -170,6 +170,11 @@ $resultbtn-height: 95px;
                 flex-direction: column;
                 div{
                     height: 51.5px;
+                    display: flex;
+                    align-items: center;
+                    color: $color-gray-5;
+                    font-size: 14px;
+                    font-weight: 500;
                     border-bottom: 1px solid #64696E;
                 }
             }
@@ -188,21 +193,30 @@ $resultbtn-height: 95px;
                 .option-btn{
                     display: flex;
                     align-items: center;
+                    &:not(:last-of-type){
+                        margin-bottom: 5px;
+                    }
                 }
                 .option-btn input[type="radio"]{
                     margin: 0;
+                    display: none;
                 }
                 .option-btn label{
+                    min-width: 300px;
                     color: $color-black-1;
+                    border-radius: 8px;
                     font-size: 14px;
                     font-weight: 500;
-                    line-height: 150%;
-                    display: block;
-                    padding: 10px 16px;
-                    background: transparent;
-                    border: none;
-                    border-radius: initial;
-                    // border-bottom: 1px solid $color-gray-4;
+                    display: inline-block;
+                    padding: 13px 16px;
+                    background: #fff;
+                    border: 1px solid $color-gray-4;
+                    cursor: pointer;
+                }
+                .option-btn input[type="radio"]:checked + label {
+                    color: $color-gray-4;
+                    border: 1px solid $color-gray-3;
+                    background: $color-gray-3;
                 }
             }
 
@@ -228,7 +242,7 @@ $resultbtn-height: 95px;
         }
     }
 
-    .quizInterface{
+    .quiz-interface{
         width: 100%;
         background-color: #fff;
         position: fixed;
@@ -292,12 +306,12 @@ $resultbtn-height: 95px;
     }
 }
 
-.quizStatus{
+.quiz-status{
     padding: 124px 20px $resultbtn-height;
     display: flex;
     justify-content: center;
     align-items: center;
-    .iconContainer{
+    .status-container{
         text-align: center;
         display: flex;
         justify-content: center;
@@ -310,14 +324,14 @@ $resultbtn-height: 95px;
         }
         b{
             color: $color-green-2;
-            &.redText{
+            &.red-text{
                 color: $color-red-1;
             }
         }
     }
 }
 
-.progressBar{
+.progress-bar{
     box-sizing: border-box;
     width: 100%;
     padding: 0 16px;
@@ -369,13 +383,13 @@ $resultbtn-height: 95px;
     }
 }
 
-.resultContainer{
+.result-container{
     padding-top: $header-height;
     padding-bottom: calc($resultbtn-height + 10px) ;
     display: flex;
     justify-content: center;
     align-items: center;
-    .resultWrapper{
+    .result-wrapper{
         margin-top: 21px;
         display: flex;
         flex-direction: column;
@@ -388,12 +402,10 @@ $resultbtn-height: 95px;
             object-fit: cover;
             margin-bottom: 24px;
         }
-        .resultText{
+        .result-text{
             white-space: pre;
         }
-
-        
-        .resultSheet{
+        .result-sheet{
             margin-top:16px;
             display: flex;
             span{
@@ -402,16 +414,16 @@ $resultbtn-height: 95px;
                     margin-right: 6px;
                 }
             }
-            .resultStampAni{
+            .result-stamp-ani{
                 opacity: 0;
                 animation: stampAni 0.5s forwards;
             }
     
-            .resultStamp{
+            .result-stamp{
             }
         }
 
-        .resultScroe{
+        .result-scroe{
             display: block;
             margin-top: 16px;
             font-size: 36px;
@@ -419,16 +431,16 @@ $resultbtn-height: 95px;
             line-height: 130%;
         }
 
-        .resultTryCount{
+        .result-try-count{
             font-weight: 700;
             font-size: 16px;
             line-height: 150%;
         }
 
     }
-    .detailBtn{
+    .detail-btn{
         background-color: #fff;
-        .detailBtnGroup{
+        .detail-btn-group{
             width: 100%;
             max-width: 1024px;
             display: flex;

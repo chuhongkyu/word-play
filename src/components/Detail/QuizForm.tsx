@@ -43,10 +43,10 @@ const QuizForm = ({userInput, setUserInput, options, onHandleCheckBox}:IProps) =
         <div className={styles['quiz-form']}>
             <div className={styles['quizanswer-sheet']}>
                 <div className={styles['dummy-line']}>
+                    <div>정답 칸</div>
                     <div/>
                     <div/>
-                    <div/>
-                    <div/>
+                    <div></div>
                 </div>
                 <DragDropContext onDragEnd={onDragEnd}>
                     <Droppable droppableId="droppable" direction="horizontal">

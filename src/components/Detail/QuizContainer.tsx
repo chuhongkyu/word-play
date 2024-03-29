@@ -10,8 +10,7 @@ import ProgressBar from "./ProgressBar";
 
 const QuizContainer = ({data}:IDetailData) => {
     const { state, dispatch } = useQuiz()
-    const { saveData } = state
-    const { quizState } = state
+    const { saveData, quizState } = state
 
     useEffect(() => {
         if (data?._id) {

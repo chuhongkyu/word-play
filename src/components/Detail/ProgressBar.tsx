@@ -18,13 +18,11 @@ const ProgressBar = ({data}:IDetailData) => {
     },[saveData ])
 
     return(
-        <div className={`${styles.progressBar}`}>
-            <div className={`${styles.bars}`}>
+        <div className={styles['progress-bar']}>
+            <div className={styles.bars}>
                 {bars?.map((el,i)=>{
                     return(
-                        <span key={i + "BAR-KEY"} className={`${styles.bar}`} data-bar={`${el}`}>
-
-                        </span>
+                        <span key={i + "BAR-KEY"} className={`${styles.bar}`} data-bar={`${el}`}/>
                     )
                 })}
             </div>
