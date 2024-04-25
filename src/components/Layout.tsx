@@ -9,9 +9,9 @@ const notoSansKr = Noto_Sans_KR({
 })
 
 const roboto = Roboto({
-    subsets: ["latin"], // preload에 사용할 subsets입니다.
+    subsets: ["latin"],
     weight: ["100", "400", "700"],
-    variable: "--roboto", // CSS 변수 방식으로 스타일을 지정할 경우에 사용합니다.
+    variable: "--roboto",
 });
 
 export const cls = (...classnames: string[]) => {

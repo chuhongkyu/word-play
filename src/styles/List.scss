@@ -3,7 +3,7 @@
 
 .banner{
     width: 100%;
-    background-color: $root-color;
+    background: center /cover no-repeat url("/assets/img/background.jpg");
     .wrapper{
         padding: __vw(60px) __vw(20px) __vw(31px);
     }

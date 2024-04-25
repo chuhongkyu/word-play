@@ -24,7 +24,7 @@ const QuizResult = ({data}:IDetailData) => {
         records: [''], 
         success: 0, total: 0, 
         resultState: {
-            type: "Good",
+            type: "good",
             text: "That's too bad.\nYou'll be able to do better next time.",
             color :"#00D6C9",
         },
@@ -40,15 +40,15 @@ const QuizResult = ({data}:IDetailData) => {
         let resultState
         if(failCount  === 0){
             resultState = {
-                type: "Perfect",
+                type: "perfect",
                 text: "완벽해요!",
-                color : "#0DB6FF",
+                color : "#C3EE41",
             }
         }else if(failCount  <= 2){
             resultState = {
-                type: "Good",
+                type: "good",
                 text: "최고 입니다!",
-                color :"#00D6C9",
+                color : "#0DB6FF",
             }
         }
         else{
@@ -88,6 +88,10 @@ const QuizResult = ({data}:IDetailData) => {
     return(
         <section className={styles['result-container']}>
             <div className={styles['result-wrapper']}>
+                
+                <div className={styles["result-state"]} data-type={stamp?.resultState?.type}>
+                    <img src={`/assets/img/${stamp?.resultState?.type}.png`} alt={stamp?.resultState?.type}/>
+                </div>
                 <div className={`${styles['result-text']} heading-6`}>
                     {stamp?.resultState.text}
                 </div>
@@ -108,7 +112,7 @@ const QuizResult = ({data}:IDetailData) => {
             </div>
             <div className={`${styles['detail-btn']} btn-container`}>
                 <div className={styles['detail-btn-group']}>
-                    {stamp?.resultState.type === "Perfect" ? 
+                    {stamp?.resultState.type === "perfect" ? 
                     <>
                         <Link href={"/"} className="btn">확인</Link>
                     </>:
