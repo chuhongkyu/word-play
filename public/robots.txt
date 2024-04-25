@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://word-play.vercel.app/
+
+# Sitemaps
+Sitemap: https://word-play.vercel.app/sitemap.xml

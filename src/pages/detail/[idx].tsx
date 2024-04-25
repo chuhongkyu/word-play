@@ -4,6 +4,7 @@ import QuizContainer from "@/components/Detail/QuizContainer";
 import Layout from "@/components/Layout";
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
+import { MetaHead } from "@/components/MetaHead";
 
 export const getStaticPaths = async () => {
     try{
@@ -51,10 +52,13 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 }
 
 export default function Detail({ data }:IDetailData){
-    // console.log(data)
     return(
-        <Layout>
-            <QuizContainer data={data}/>
-        </Layout>
+        <>
+            <MetaHead title={data?.subtitle}/>
+            <Layout>
+                <QuizContainer data={data}/>
+            </Layout>
+        </>
+        
     )
 }

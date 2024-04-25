@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://word-play.vercel.app</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/admin</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/admin/AdminForm</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/admin/CheckUser</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/detail/66012825c9306d2ca7699fae</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/detail/66012825c9306d2ca7699faf</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/detail/6606860956b1202e8a41c136</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://word-play.vercel.app/detail/6606a555f4ae2b38c7ff83d8</loc><lastmod>2024-04-25T07:06:18.866Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
