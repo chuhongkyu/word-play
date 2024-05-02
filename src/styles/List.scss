@@ -175,3 +175,11 @@
         }
     }
 }
+
+@media screen and (max-width:1024px) {
+    .banner{
+        .wrapper{
+            padding: __vw(30px) __vw(20px) __vw(31px);
+        }
+    }
+}
