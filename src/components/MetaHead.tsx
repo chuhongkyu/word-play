@@ -16,7 +16,7 @@ export function MetaHead({title}:{title: string}){
             <meta name="twitter:title" content="세대 갈등 해결 게임 - 신조어 배우기" />
             <meta name="twitter:description" content="세대 갈등을 해결하기 위한 웹 기반 게임. 젊은 세대와 노년 세대의 소통과 이해를 촉진합니다." />
             <meta name="twitter:image" content="/assest/img/og_img.jpg" />
-            
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1979490362657562" crossOrigin="anonymous"></script>
       </Head>
     )
 }
