@@ -40,7 +40,7 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
                 setUserInput(userInput.concat([{ value, key }]));
             }
         } else {
-            console.log(key, value)
+            // console.log(key, value)
             //필터를 통해서 제거
             setUserInput(userInput.filter(item => item.key !== key));
         }

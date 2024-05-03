@@ -1,7 +1,7 @@
 import styles from "@/styles/Detail.module.scss";
 import { Dispatch, SetStateAction } from "react";
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
-
+import { ReactSVG } from "react-svg"
 interface Input {
     value: string;
     key: string;
@@ -37,6 +37,10 @@ const QuizForm = ({userInput, setUserInput, options, onHandleCheckBox}:IProps) =
         const items = reorder(userInput, source.index, destination.index);
     
         setUserInput(items);
+    }
+
+    const onReset = () => {
+        setUserInput([]);
     }
     
     return(
@@ -83,6 +87,7 @@ const QuizForm = ({userInput, setUserInput, options, onHandleCheckBox}:IProps) =
                         </span>
                     )
                 })}
+                <ReactSVG onClick={onReset} className={styles["reset-btn"]} src={"/assets/icon/reset.svg"}/>
             </div>
         </div>
     )
