@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const maxWidth = 656;
     let vw = Math.min(window.innerWidth, maxWidth) * 0.01;
     document.documentElement.style.setProperty('--uw', `${vw}px`);
-    document.documentElement.style.setProperty('--100vh', `${window.innerHeight}px`);
+    document.documentElement.style.setProperty('--100dvh', `${window.innerHeight}px`);
   }
 
   useEffect(() => {
