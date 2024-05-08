@@ -56,6 +56,7 @@
             justify-content: space-between;
             align-items: center;
             padding: __vw(12px) __vw(16px);
+            position: relative;
             .list-wrapper{
                 .subtitle{
                     display: block;
@@ -86,31 +87,34 @@
                     line-height: 150%;
                     margin-bottom: 5px;
                 }
-                .list-stamps{
-                    display: flex;
-                    padding: 4px 0;
-                    .stamp{
-                        display: block;
-                        width: __vw(15px);
-                        height: __vw(15px);
-                        svg{
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            .stamp-fill[data-type="success"]{
-                                fill: $root-color;
-                            }
-                            .stamp-fill[data-type="fail"]{
-                                fill: $color-red-1;
-                            }
-                        }
-                    }
-                }
             }
-            
-            
             .arrow-btn{
                 
+            }
+            .list-status-bar{
+                display: flex;
+                position: absolute;
+                bottom: 0;
+                left: __vw(12px);
+                border-radius: 25px;
+                overflow: hidden;
+                .bar{
+                    display: block;
+                    min-width: __vw(40px);
+                    height: __vw(3px);
+                    opacity: 0.8;
+                    background: #DDDDDD;
+                    border-radius: 25px;
+                    &:not(:last-of-type){
+                        margin-right: 2px;
+                    }
+                    &[data-type="success"]{
+                        background: $root-color;
+                    }
+                    &[data-type="fail"]{
+                        background: $color-red-1;
+                    }
+                }
             }
         }
     }

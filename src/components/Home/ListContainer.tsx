@@ -5,7 +5,7 @@ import Link from "next/link"
 import { IList } from "@/interface/listType";
 import { useQuiz } from "@/utils/useQuiz";
 import { useEffect } from "react";
-import StampStatus from "./StampStatus";
+import BarStatus from "./BarStatus";
 
 const ListContainer = ({data}:{ data: IList[]}) => {
     const { state, dispatch } = useQuiz()
@@ -31,15 +31,12 @@ const ListContainer = ({data}:{ data: IList[]}) => {
                                 <span className="date-time">{useFormattedDate(el.startDatetime)} {el?.testType === "list" ? <b className="mark">list</b> : <b className="mark">select</b>}</span>
                             </div>
                             {saveData[makeContent(el._id)]?.record.length > 0 &&
-                            <div className="list-state">
-                                <p className="subtitle">진행도</p>
-                                <div className="list-stamps">
+                            <div className="list-status-bar">
                                 {saveData[makeContent(el._id)]?.record.map((score,i)=>{
                                     return(
-                                        <StampStatus  key={i + el._id + ""} state={score}/>
+                                        <BarStatus  key={i + el._id + ""} state={score}/>
                                     )
                                 })}
-                                </div>
                             </div> }
                             <div className="arrow-btn">
                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
