@@ -27,7 +27,7 @@ const ListContainer = ({data}:{ data: IList[]}) => {
                     <li key={el._id + "KEY"}>
                         <Link href={`/detail/${el._id}`}>
                             <div className="list-wrapper">
-                                <span className="subtitle">{el.subtitle}</span>
+                                <h5 className="subtitle">{el.subtitle}</h5>
                                 <span className="date-time">{useFormattedDate(el.startDatetime)} {el?.testType === "list" ? <b className="mark">list</b> : <b className="mark">select</b>}</span>
                             </div>
                             {saveData[makeContent(el._id)]?.record.length > 0 &&

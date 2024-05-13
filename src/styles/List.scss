@@ -47,6 +47,9 @@
         display: flex;
         width: 100%;
         border-bottom: 1px solid #DDDDDD;
+        &:hover,&:active{
+            background: #ecebeb8e;
+        }
         &:last-of-type{
             margin-bottom: 95px;
         }
