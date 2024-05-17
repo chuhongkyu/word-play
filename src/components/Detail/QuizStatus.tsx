@@ -33,12 +33,12 @@ const QuizStatus = ({data}:{data:IQuiz}) => {
             <div className={styles['status-container']}>
                 {record === "success" ? (
                 <>
-                    <img src={'/assets/detail/test-success.png'} alt="success"/>
+                    <img src={'/assets/detail/test-success.jpg'} alt="success"/>
                     <span className="heading-3"><b>성공</b>!</span>
                 </>
                 ):(
                 <>
-                    <img src={'/assets/detail/test-fail.png'} alt="fail"/>
+                    <img src={'/assets/detail/test-fail.jpg'} alt="fail"/>
                     <span className="heading-3"><b className={styles['red-text']}>실패</b>!</span>
                 </>
                 )

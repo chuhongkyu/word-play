@@ -239,11 +239,13 @@ $resultbtn-height: 95px;
                 background: #fff;
                 border: 1px solid $color-gray-4;
                 cursor: pointer;
+                transition: 300ms ease-in-out;
             }
             .option-btn input[type="checkbox"]:checked + label {
                 color: $color-gray-4;
                 border: 1px solid $color-gray-3;
                 background: $color-gray-3;
+                transition: 300ms ease-in-out;
             }
             .reset-btn{
                 width: 1.5rem;

@@ -177,8 +177,17 @@
                     }
                 }
                 .toss-icon{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     transform: scale(0.8);
                     transition: 300ms ease-in-out;
+                    aspect-ratio: 3 / 1;
+                    img{
+                        display: block;
+                        width: 50px;
+                        height: 15.5px;
+                    }
                 }
                 .coffee-icon{
                     position: absolute;
