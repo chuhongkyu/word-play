@@ -9,7 +9,7 @@ export default function Document() {
         <meta name="naver-site-verification" content="dc8ef477fbdf278131748aa9fdf60b79da27dbd3" />
         <Script 
           id="adsbygoogle-init"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1979490362657562" 
           crossOrigin="anonymous"/>
       </Head>
