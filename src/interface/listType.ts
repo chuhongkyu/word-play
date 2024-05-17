@@ -3,4 +3,5 @@ export interface IList {
   testType: string;
   subtitle: string;
   startDatetime: string;
+  keywords?:string[];
 }

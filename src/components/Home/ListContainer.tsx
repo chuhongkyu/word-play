@@ -5,7 +5,6 @@ import Link from "next/link"
 import { IList } from "@/interface/listType";
 import { useQuiz } from "@/utils/useQuiz";
 import { useEffect } from "react";
-import BarStatus from "./BarStatus";
 
 const ListContainer = ({data}:{ data: IList[]}) => {
     const { state, dispatch } = useQuiz()
@@ -28,15 +27,16 @@ const ListContainer = ({data}:{ data: IList[]}) => {
                         <Link href={`/detail/${el._id}`}>
                             <div className="list-wrapper">
                                 <h5 className="subtitle">{el.subtitle}</h5>
+                                <span className="keywords">
+                                    키워드 : {el?.keywords?.map((word, i) => <p key={i+"word"}>{word}
+                                    {i + 1 !== el?.keywords?.length && ',' }
+                                    </p>)}
+                                </span>
                                 <span className="date-time">{useFormattedDate(el.startDatetime)} {el?.testType === "list" ? <b className="mark">list</b> : <b className="mark">select</b>}</span>
                             </div>
                             {saveData[makeContent(el._id)]?.record.length > 0 &&
                             <div className="list-status-bar">
-                                {saveData[makeContent(el._id)]?.record.map((score,i)=>{
-                                    return(
-                                        <BarStatus  key={i + el._id + ""} state={score}/>
-                                    )
-                                })}
+                                {saveData[makeContent(el._id)]?.record.filter((el)=> el == "success").length} / {saveData[makeContent(el._id)]?.record.length}
                             </div> }
                             <div className="arrow-btn">
                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -60,6 +60,7 @@
             align-items: center;
             padding: __vw(12px) __vw(16px);
             position: relative;
+            min-height: 100px;
             .list-wrapper{
                 .subtitle{
                     display: block;
@@ -67,6 +68,14 @@
                     font-weight: 400;
                     line-height: 150%;
                     margin-bottom: 5px;
+                }
+                .keywords{
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 200%;
+                    color: $color-gray-1;
+                    display: flex;
+                    gap: 6px;
                 }
                 .date-time{
                     font-size: 12px;
@@ -96,11 +105,11 @@
             }
             .list-status-bar{
                 display: flex;
-                position: absolute;
-                bottom: 0;
-                left: __vw(12px);
                 border-radius: 25px;
                 overflow: hidden;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 150%;
                 .bar{
                     display: block;
                     min-width: __vw(40px);
