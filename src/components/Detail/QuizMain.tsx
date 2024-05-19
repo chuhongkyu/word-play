@@ -8,6 +8,7 @@ import { useQuiz } from "@/utils/useQuiz";
 // import QuizForm from "./QuizForm";
 import dynamic from "next/dynamic";
 import QuizFormList from "./QuizFormList";
+import { AdsDetail } from "../Ads/AdsDetail";
 
 const QuizForm = dynamic(() => import("./QuizForm"), { ssr: false});
 
@@ -152,6 +153,8 @@ const QuizMain = ({quizzes}:{quizzes: IQuiz})=> {
                     onHandleCheckBox={onHandleCheckBox} />
                 }
                 {quizzes?.testType === "select" ? <SoundBtn url={quizzes?.content[currentQ]?.tts}/> : null}
+                {/* <AdsDetail/> */}
+                
                 <div className={styles['quiz-interface']}>
                     <div className={styles.group}>
                         <CountdownTimer isStart={quizState === "START" ? true : false} onClose={timeOverClose }/>
