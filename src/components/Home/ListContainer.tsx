@@ -23,7 +23,6 @@ const ListContainer = ({data}:{ data: IList[]}) => {
 
     return(
         <ul className="list">
-            
             {data?.map((el, index) =>{
                 return(
                     <Fragment key={index + "LIST-KEY"}>

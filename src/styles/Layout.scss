@@ -4,6 +4,7 @@ main{
     width: 100%;
     padding-top: $header-height;
     max-width: $max-width;
+	background: #fff;
 }
 
 .errorContainer{
@@ -31,6 +32,7 @@ main{
 	width: 100%;
 	z-index: 10;
 	background: #fff;
+	border: 1px solid $color-gray-3;
 	.headerGroup{
 		position: relative;
 		height: 100%;
@@ -103,7 +105,7 @@ main{
 	width: 100%;
 	padding: 20px;
 	margin-bottom: $nav-bar-height;
-	background: #f8f9fa;
+	background: $content-color;
 	h4{
 		margin-bottom: 10px;
 	}

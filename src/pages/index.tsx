@@ -8,6 +8,7 @@ import { connectDB } from "@/utils/database";
 import Nav from "@/components/Home/Nav";
 import { MetaHead } from "@/components/MetaHead";
 import Footer from "@/components/Footer";
+import Description from "@/components/Description";
 
 export const getStaticProps = async () => {
   try {
@@ -30,6 +31,7 @@ export default function Home({ data }: { data: IList[]}) {
       <Layout>
         <Header text="세대 갈등 해결"/>
         <Banner/>
+        <Description/>
         <Suspense fallback={<div>Loading...</div>}>
           <ListContainer data={data}/>
           <Nav/>

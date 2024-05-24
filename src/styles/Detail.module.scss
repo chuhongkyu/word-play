@@ -128,6 +128,7 @@ $resultbtn-height: 95px;
 
 .quiz-container{
     padding: 0 20px;
+    margin-bottom: $interface-height;
     .title{
         display: block;
         margin-bottom: __vw(20px)
