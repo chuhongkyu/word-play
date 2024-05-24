@@ -6,7 +6,7 @@ const Nav = () => {
             <div className="group">
                 <div className="left">
                     <div className="coffee-icon-wrapper">
-                        <a className="coffee-icon" href="https://toss.me/서울신입생/4500" target="_blank">
+                        <a className="coffee-icon" href="https://toss.me/서울신입생/4500" target="_blank" rel="noopener noreferrer">
                             <span className="toss-icon">
                                 <Image width={50} height={15.5} src={"/assets/img/toss.png"} alt="toss"/>
                             </span>

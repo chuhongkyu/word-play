@@ -42,7 +42,7 @@
 .list{
     display: block;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: __vw(50px);
     li{
         display: flex;
         width: 100%;
@@ -53,9 +53,6 @@
         border-bottom: 1px solid #DDDDDD;
         &:hover,&:active{
             background: #ecebeb8e;
-        }
-        &:last-of-type{
-            margin-bottom: 95px;
         }
         a{
             width: 100%;
@@ -146,7 +143,7 @@
     border-top: 1px solid $color-gray-3;
     display: flex;
     justify-content: center;
-    height: 74px;
+    height: $nav-bar-height;
     .group{
         width: 100%;
         max-width: 1024px;

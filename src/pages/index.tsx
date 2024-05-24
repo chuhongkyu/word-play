@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import { connectDB } from "@/utils/database";
 import Nav from "@/components/Home/Nav";
 import { MetaHead } from "@/components/MetaHead";
+import Footer from "@/components/Footer";
 
 export const getStaticProps = async () => {
   try {
@@ -25,7 +26,7 @@ export const getStaticProps = async () => {
 export default function Home({ data }: { data: IList[]}) {
   return (
     <>
-      <MetaHead title="신조어 배우기"/>
+      <MetaHead title="세대 갈등 해결 - 신조어 배우기"/>
       <Layout>
         <Header text="세대 갈등 해결"/>
         <Banner/>
@@ -33,7 +34,9 @@ export default function Home({ data }: { data: IList[]}) {
           <ListContainer data={data}/>
           <Nav/>
         </Suspense>
+        <Footer/>
       </Layout>
+      
     </>
   );
 }

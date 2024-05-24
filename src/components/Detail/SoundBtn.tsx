@@ -27,6 +27,7 @@ const SoundBtn = memo(({url = "/assets/audio/01-01.wav"} : {url: string}) => {
                 src={url} 
                 onEnded={onHandleAudioEnd}
                 />
+            <p className="ally">음성 퀴즈 버튼</p>
         </button>
     )
 })

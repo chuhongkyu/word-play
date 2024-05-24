@@ -93,3 +93,33 @@ main{
 		border: 1px solid $color-gray-4;
 	}
 }
+
+.ally{
+	display: none;
+	opacity: 0;
+}
+
+.footer{
+	width: 100%;
+	padding: 20px;
+	margin-bottom: $nav-bar-height;
+	background: #f8f9fa;
+	h4{
+		margin-bottom: 10px;
+	}
+	.name{
+		text-align: right;
+	}
+	hr{
+		margin-top: 15px;
+	}
+	.footer-content{
+		.footer-bottom{
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			width: 100%;
+			height: 100px;
+		}
+	}
+}

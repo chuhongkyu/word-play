@@ -27,7 +27,7 @@ const ListContainer = ({data}:{ data: IList[]}) => {
             {data?.map((el, index) =>{
                 return(
                     <Fragment key={index + "LIST-KEY"}>
-                        {(index + 1) % 2 === 0 && <AdsList/>}
+                        {/* {(index + 1) % 2 === 0 && <AdsList/>} */}
                         <li className="li" key={el._id + "KEY"}>
                             <Link href={`/detail/${el._id}`}>
                                 <div className="list-wrapper">
