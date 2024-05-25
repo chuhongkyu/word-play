@@ -1,5 +1,9 @@
 @import './variables';
 
+body{
+	background: $html-background-color;
+}
+
 main{
     width: 100%;
     padding-top: $header-height;
@@ -71,6 +75,7 @@ main{
 	width: 100%;
 	padding: 17px 20px;
 	box-sizing: border-box;
+	background-color: white;
 }
 
 .btn{

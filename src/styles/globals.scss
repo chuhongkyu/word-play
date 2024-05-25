@@ -34,6 +34,8 @@ body,
 }
 
 #__next{
+	width: 100%;
+	min-height: 100dvh;
 	display: flex;
 	justify-content: center;
 }

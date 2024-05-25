@@ -1,4 +1,4 @@
-export type QuizState = "READY" | "START" | "STATUS" | "RESULT";
+export type QuizState = "FIRST" | "READY" | "START" | "STATUS" | "RESULT";
 
 export type ContentType = 'success' | 'fail' | 'current' | 'default';
 

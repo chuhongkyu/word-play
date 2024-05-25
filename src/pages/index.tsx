@@ -38,7 +38,6 @@ export default function Home({ data }: { data: IList[]}) {
         </Suspense>
         <Footer/>
       </Layout>
-      
     </>
   );
 }

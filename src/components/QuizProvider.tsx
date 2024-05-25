@@ -4,7 +4,7 @@ import { ReactNode, createContext, useReducer } from 'react';
 const initialState:IState = {
   currentQ: 0,
   saveData: [],
-  quizState: "READY"
+  quizState: "FIRST"
 };
 
 function quizReducer(state:IState, action:IAction) {

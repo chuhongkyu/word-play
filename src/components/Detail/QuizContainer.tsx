@@ -6,6 +6,7 @@ import { useQuiz } from "@/utils/useQuiz";
 import { useEffect } from "react";
 import Header from "../Header";
 import ProgressBar from "./ProgressBar";
+import QuizInformation from "./QuizInformation";
 
 
 const QuizContainer = ({data}:IDetailData) => {
@@ -31,18 +32,26 @@ const QuizContainer = ({data}:IDetailData) => {
     useEffect(()=> {
         if(saveData){
             const index = saveData.findIndex(item => item.id === data?._id);
-            if(saveData[index]?.clear) dispatch({ type: 'SET_QUIZ_STATE', payload: "RESULT"})
+            if (index !== -1) {
+                if (saveData[index]?.clear) {
+                    dispatch({ type: 'SET_QUIZ_STATE', payload: "RESULT" });
+                }
+            } else {
+                dispatch({ type: 'SET_QUIZ_STATE', payload: "FIRST" });
+            }
         }
     },[saveData])
 
     function renderQuizComponents() {
         switch (quizState) {
-          case "STATUS":
-            return <QuizStatus data={data}/>;
-          case "RESULT":
-            return <QuizResult data={data}/>;
-          default:
-            return <QuizMain quizzes={data}/>;
+            case "STATUS":
+                return <QuizStatus data={data}/>;
+            case "RESULT":
+                return <QuizResult data={data}/>;
+            case "FIRST":
+                return <QuizInformation data={data}/>
+            default:
+                return <QuizMain quizzes={data}/>;
         }
     }
 
