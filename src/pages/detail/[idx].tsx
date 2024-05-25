@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 export default function Detail({ data }:IDetailData){
     return(
         <>
-            <MetaHead title={data?.subtitle}/>
+            <MetaHead title={data?.subtitle} desc={data?.keywords?.join(',')}/>
             <Layout>
                 <QuizContainer data={data}/>
             </Layout>

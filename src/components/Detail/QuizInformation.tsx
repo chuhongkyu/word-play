@@ -20,11 +20,11 @@ export default function QuizInformation({data}:IDetailData){
                 <article className={styles.article}>
                     {data?.testType === "list" &&
                     <span className={styles["content-img"]}>
-                        <Image fill src={"/assets/detail/howToPlay_list.jpg"} alt="howToPlay"/>
+                        <Image placeholder="empty" priority fill sizes="(max-width: 768px) 100%, 100%" src={"/assets/detail/howToPlay_list.jpg"} alt="howToPlay"/>
                     </span>}
                     {data?.testType === "select" &&
                     <span className={styles["content-img"]}>
-                        <Image fill src={"/assets/detail/howToPlay_select.jpg"} alt="howToPlay"/>
+                        <Image placeholder="empty" priority fill sizes="(max-width: 768px) 100%, 100%" src={"/assets/detail/howToPlay_select.jpg"} alt="howToPlay"/>
                     </span>}
                     {data?.testType === "list" &&
                     <ul className={styles.order}>

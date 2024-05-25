@@ -7,7 +7,8 @@ export interface IQuiz {
     testType: string;
     subtitle: string;
     startDatetime: string;
-    content: IContent[]
+    content: IContent[];
+    keywords?: string[]
 }
 
 export interface IContent{

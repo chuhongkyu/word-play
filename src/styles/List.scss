@@ -76,9 +76,11 @@
     .li{
         display: flex;
         width: 100%;
-        border-bottom: 1px solid #DDDDDD;
         &:hover,&:active{
             background: #ecebeb8e;
+        }
+        &:not(:last-of-type){
+            border-bottom: 1px solid #DDDDDD;
         }
         a{
             width: 100%;

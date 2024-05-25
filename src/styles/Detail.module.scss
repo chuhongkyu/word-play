@@ -292,7 +292,7 @@ $resultbtn-height: 95px;
 }
 
 .quiz-information{
-    padding: 0 20px;
+    padding: 20px 20px 0;
     margin-bottom: 120px;
     .content{
         .caption{
@@ -383,6 +383,7 @@ $resultbtn-height: 95px;
             .caption{
             }
             .article{
+                align-items: center;
                 flex-direction: column;
                 gap: 1rem;
                 margin-bottom: 1rem;
