@@ -1,0 +1,32 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#f69435",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/",
+    "name": "신조어 배우기",
+    "short_name": "세대갈등 해결",
+    "description": "세대 갈등을 해결하기 위한 웹 기반 게임. 젊은 세대와 노년 세대의 소통과 이해를 촉진합니다.",
+    "icons": [
+        {
+            "src": "/icon/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

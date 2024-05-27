@@ -12,6 +12,7 @@ export default function Document() {
           strategy="lazyOnload"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1979490362657562" 
           crossOrigin="anonymous"/>
+        <link rel='manifest' href='/manifest.json' />
       </Head>
       <body>
         <Main />
