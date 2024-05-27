@@ -9,6 +9,7 @@ import Nav from "@/components/Home/Nav";
 import { MetaHead } from "@/components/MetaHead";
 import Footer from "@/components/Footer";
 import Description from "@/components/Description";
+import AddToHomeScreenPrompt from "@/components/AddToHomeScreenPrompt";
 
 export const getStaticProps = async () => {
   try {
@@ -36,6 +37,7 @@ export default function Home({ data }: { data: IList[]}) {
           <ListContainer data={data}/>
           <Nav/>
         </Suspense>
+        <AddToHomeScreenPrompt />
         <Footer/>
       </Layout>
     </>

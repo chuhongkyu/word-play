@@ -130,3 +130,53 @@ main{
 		}
 	}
 }
+
+
+.a2hs-prompt {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100dvh;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0,0.2);
+}
+
+.a2hs-content {	
+	display: flex;	
+	flex-direction: column;	
+	align-items: center;
+	background: #fff;
+	border-radius: 25px;
+	max-width: 300px;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	.icon{
+		width: 70px;
+		height: 70px;
+		border-radius: 12px;
+		border: 1px solid #D3D3D3;
+		background: #fff;
+		display: block;
+		margin-bottom: 1rem;
+		box-sizing: content-box;
+	}
+	.btn{
+		margin-top: 1rem;
+		border-radius: 25px;
+	}
+	.caption{
+		margin-top: 1rem;
+		border: 0;
+		background: transparent;
+		color: #D3D3D3;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+  
