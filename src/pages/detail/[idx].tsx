@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
             return { notFound: true };
         }
 
-        return { props: { data: JSON.parse(JSON.stringify(data)) } };
+        return { props: { data: JSON.parse(JSON.stringify(data)) }, revalidate: 3600 };
 
     } catch (error) {
         console.error(error);
