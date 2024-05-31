@@ -26,6 +26,7 @@ const CountdownTimer = ({isStart, onClose }:ICountProps) => {
 
     return(
         <div className={`${styles.timerBox}`}>
+            <img src="/assets/icon/clock-animation.gif" alt="clock" width={35} height={35}/>
             <p className="body-2">
                 <span>{countdown.toString().padStart(2, '0')}초</span>
             </p>

@@ -111,6 +111,7 @@ $resultbtn-height: 95px;
 
 .timerBox{
     color: $color-black-1;
+    display: flex;
     p{
         display: flex;
         align-items: center;
@@ -568,8 +569,7 @@ $resultbtn-height: 95px;
     .timerBox{
         color: $color-black-1;
         p{
-            display: flex;
-            align-items: center;
+        
         }
     }
 }
