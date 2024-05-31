@@ -4,4 +4,5 @@ export interface IList {
   subtitle: string;
   startDatetime: string;
   keywords?:string[];
+  category?:string;
 }

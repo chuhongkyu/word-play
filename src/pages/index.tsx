@@ -32,7 +32,6 @@ export default function Home({ data }: { data: IList[]}) {
       <Layout>
         <Header text="세대 갈등 해결"/>
         <Banner/>
-        <Description/>
         <Suspense fallback={<div>Loading...</div>}>
           <ListContainer data={data}/>
           <Nav/>

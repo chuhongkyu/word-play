@@ -2,7 +2,7 @@ export type QuizState = "FIRST" | "READY" | "START" | "STATUS" | "RESULT";
 
 export type ContentType = 'success' | 'fail' | 'current' | 'default';
 
-interface ISaveData {
+export interface ISaveData {
   id: string;
   record: ContentType[]
   endQ: number;
