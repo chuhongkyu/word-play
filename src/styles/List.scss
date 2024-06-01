@@ -110,7 +110,6 @@
 }
 
 .list{
-    margin-top: __vw(5px);
     display: block;
     width: 100%;
     margin-bottom: __vw(50px);
@@ -132,7 +131,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: __vw(12px) __vw(16px);
+            padding: __vw(18px) __vw(20px);
             position: relative;
             min-height: 100px;
             .list-wrapper{
@@ -141,22 +140,29 @@
                     font-size: 16px;
                     font-weight: 400;
                     line-height: 150%;
-                    margin-bottom: 5px;
                 }
                 .keywords{
+                    margin-top: 0.2rem;
                     font-size: 12px;
                     font-weight: 400;
-                    line-height: 200%;
+                    line-height: 150%;
                     color: $color-gray-1;
                     display: flex;
-                    gap: 6px;
+                    gap: 0.2rem;
+                    letter-spacing: 0.05rem;
+                    color: #333;
+                    b{
+                        color: #000;
+                    }
                 }
                 .date-time{
+                    margin-top: 10px;
                     font-size: 12px;
-                    line-height: 200%;
+                    line-height: 150%;
                     font-weight: 400;
                     color: $color-gray-1;
                     display: flex;
+                    color: #333;
                     .mark{
                         margin-left: 0.8rem;
                         font-size: 12px;

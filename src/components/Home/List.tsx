@@ -25,7 +25,7 @@ export default function List({ id, subtitle, keywords, startDatetime, testType, 
                 <div className="list-wrapper">
                     <h5 className="subtitle">{subtitle}</h5>
                     <span className="keywords">
-                        키워드 : {keywords?.map((word, i) => <p key={i+"word"}>{word}
+                        <b>키워드</b>: {keywords?.map((word, i) => <p key={i+"word"}>{word}
                         {i + 1 !== keywords?.length && ',' }
                         </p>)}
                     </span>
