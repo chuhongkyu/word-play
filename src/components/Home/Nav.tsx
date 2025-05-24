@@ -1,21 +1,23 @@
 import Image from "next/image"
+import { useState } from "react";
+import PayPopup from "./PayPopup";
 
 const Nav = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return(
+        <>
         <div className="nav-bar">
             <div className="group">
-                <div className="left">
+                <button className="left" onClick={() => setIsOpen(true)}>
                     <div className="coffee-icon-wrapper">
-                        <a className="coffee-icon" href="https://toss.me/서울신입생/4500" target="_blank" rel="noopener noreferrer">
-                            <span className="toss-icon">
-                                <Image width={50} height={15.5} src={"/assets/img/toss.png"} alt="toss"/>
-                            </span>
-                        </a>
+                        <Image src={"/assets/img/pay-icon.png"} alt="coffee" width={28} height={28} />
                     </div>
                     <p className="body-2 coffee-text">커피 한 잔 후원하기</p>
-                </div>
+                </button>
             </div>
         </div>
+        <PayPopup open={isOpen} onClick={() => setIsOpen(false)} />
+        </>
     )
 }
 
